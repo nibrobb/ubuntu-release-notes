@@ -10,8 +10,10 @@ Release notes contain specific upgrade instructions for that particular release.
 
 ## 24.04 LTS
 
-* [24.04.2](https://discourse.ubuntu.com/t/noble-numbat-point-release-changes/47565/3)  
-* [24.04.1](https://discourse.ubuntu.com/t/noble-numbat-point-release-changes/47565#h-24041-1)  
+* {ref}`changes-in-ubuntu-24.04.4`
+* {ref}`changes-in-ubuntu-24.04.3`
+* {ref}`changes-in-ubuntu-24.04.2`
+* {ref}`changes-in-ubuntu-24.04.1`
 * {ref}`ubuntu-24.04-lts-release-notes`
 * {ref}`noble-numbat-schedule`
 

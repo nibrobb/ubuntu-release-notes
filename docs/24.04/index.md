@@ -3,10 +3,16 @@
 
 These release notes for **Ubuntu 24.04 LTS** (Noble Numbat) provide an overview of the release and document the known issues with Ubuntu and its flavours.
 
-For details of the changes applied since 24.04, refer to the following posts:
+For details of the changes applied since 24.04, refer to the following changelogs:
 
-* [24.04.2](https://discourse.ubuntu.com/t/noble-numbat-point-release-changes/47565/3)
-* [24.04.1](https://discourse.ubuntu.com/t/noble-numbat-point-release-changes/47565#h-24041-1)
+:::{toctree}
+:maxdepth: 1
+
+24.04.4 <4>
+24.04.3 <3>
+24.04.2 <2>
+24.04.1 <1>
+:::
 
 For the release schedule of Ubuntu 24.04 LTS and its point releases, refer to:
 
