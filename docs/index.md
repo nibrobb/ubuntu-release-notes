@@ -6,13 +6,13 @@ Release notes contain specific upgrade instructions for that particular release.
 
 ## 25.10
 
-* {ref}`Questing Quokka release notes <ubuntu-25.10-release-notes>`
+* {ref}`ubuntu-25.10-release-notes`
 
 ## 24.04 LTS
 
 * [24.04.2](https://discourse.ubuntu.com/t/noble-numbat-point-release-changes/47565/3)  
 * [24.04.1](https://discourse.ubuntu.com/t/noble-numbat-point-release-changes/47565#h-24041-1)  
-* [Ubuntu 24.04 LTS (Noble Numbat) release notes](https://discourse.ubuntu.com/t/ubuntu-24-04-lts-noble-numbat-release-notes/39890)
+* {ref}`ubuntu-24.04-lts-release-notes`
 * {ref}`noble-numbat-schedule`
 
 ## 22.04 LTS
@@ -22,7 +22,7 @@ Release notes contain specific upgrade instructions for that particular release.
 * [22.04.3](https://discourse.ubuntu.com/t/jammy-jellyfish-point-release-changes/29835/4)
 * [22.04.2](https://discourse.ubuntu.com/t/jammy-jellyfish-point-release-changes/29835/3)
 * [22.04.1](https://discourse.ubuntu.com/t/jammy-jellyfish-point-release-changes/29835/1)
-* [Ubuntu 22.04 LTS (Jammy Jellyfish) release notes](https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668)
+* {ref}`ubuntu-22.04-lts-release-notes`
 * {ref}`jammy-jellyfish-schedule`
 
 (release-policy-and-schedule)=
