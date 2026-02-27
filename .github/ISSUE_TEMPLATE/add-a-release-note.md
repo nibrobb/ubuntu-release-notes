@@ -37,6 +37,12 @@ E.g. Ubuntu 26.04 LTS
 ## Write a short title summarizing the change
 
 
+## Is this a major change?
+
+Do you think this should be included in the release highlights? If this is an interim release, its highlights will also be included in the summary of the next LTS release.
+
+Yes/No
+
 ## Is there a ticket related to the change?
 
 Add a link to Jira, Launchpad, GitHub, etc.
