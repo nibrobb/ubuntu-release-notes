@@ -65,4 +65,4 @@ The GNOME desktop environment has been updated to version 50:
 
 ### Hardware support
 
-### Common
+### Common changes

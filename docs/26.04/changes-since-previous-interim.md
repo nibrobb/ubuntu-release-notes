@@ -5,14 +5,14 @@ If you're upgrading to Ubuntu 26.04 LTS from the previous interim release, Ubunt
 
 ## New features and improvements
 
-### Desktop
+### Desktop features
 
 :::{rubric} GNOME 50
 :::
 
 The GNOME desktop environment has been updated to version 50.
 
-### Server
+### Server features
 
 :::{rubric} cloud-init v. 25.1.1
 :::
@@ -30,7 +30,7 @@ Kerberos has been configured to observe the `/etc/krb5.conf.d/` directory by def
 
 MIT Kerberos and Heimdal are both supported, but use different orderings for the include directive. MIT Kerberos uses alphanumerical order, while Heimdal uses the unpredictable order of the readdir() system call ([LP: #2140967](https://bugs.launchpad.net/ubuntu/+source/heimdal/+bug/2140967)).
 
-### Development
+### Development features
 
 :::{rubric} Toolchain Upgrades 🛠️
 :::
@@ -49,13 +49,13 @@ OpenJDK 25 is the default Java toolchain.
 
 ...
 
-### Cloud
+### Cloud features
 
-### Security
+### Security features
 
-### Hardware support
+### Hardware support features
 
-### Common
+### Common features
 
 :::{rubric} Linux kernel 7.0 🐧
 :::
@@ -93,9 +93,9 @@ If the previous behavior is preferred, password feedback can be disabled using t
 
 ## Backwards-incompatible changes
 
-### Desktop
+### Desktop changes
 
-### Server
+### Server changes
 
 :::{rubric} SSSD
 :::
@@ -113,43 +113,45 @@ Other changes of importance are listed upstream:
 * https://sssd.io/release-notes/sssd-2.11.0.html
 * https://sssd.io/release-notes/sssd-2.12.0.html
 
-### Development
+### Development changes
 
-### Cloud
+### Cloud changes
 
-### Security
+### Security changes
 
-### Hardware support
+### Hardware support changes
 
-### Common
+### Common changes
+
 
 ## Deprecated features
 
-### Desktop
+### Desktop deprecations
 
-### Server
+### Server deprecations
 
-### Development
+### Development deprecations
 
-### Cloud
+### Cloud deprecations
 
-### Security
+### Security deprecations
 
-### Hardware support
+### Hardware support deprecations
 
-### Common
+### Common deprecations
+
 
 ## Bug fixes
 
-### Desktop
+### Desktop fixes
 
-### Server
+### Server fixes
 
-### Development
+### Development fixes
 
-### Cloud
+### Cloud fixes
 
-### Security
+### Security fixes
 
 :::{rubric} Apache2
 :::
@@ -162,15 +164,16 @@ For more details, see the [upstream release notes](https://www.apachelounge.com/
 
 The Debian changes for the new version have also disabled TLS 1.0 and 1.1, following RFC 8996. These should be already disabled by default in OpenSSL, and now Apache2 follows the same. See [the fixed bug](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=943415).
 
-### Hardware support
+### Hardware support fixes
 
-### Common
+### Common fixes
+
 
 ## Known issues
 
 As is to be expected with any release, there are some significant known bugs that users may encounter with this release of Ubuntu. The ones we know about at this point (and some of the workarounds) are documented here, so you don’t need to spend time reporting these bugs again:
 
-### Desktop
+### Desktop issues
 
 :::{rubric} Localization
 :::
@@ -217,7 +220,7 @@ Resuming from suspend on Nvidia desktops (where Nvidia is the primary GPU so gen
 
 Installing `ubuntu-fonts-classic` results in a non-Ubuntu font being displayed ([LP#2083683](https://bugs.launchpad.net/bugs/2083683)). To resolve this, install `gnome-tweaks` and set ‘Interface Text’ to ‘Ubuntu’.
 
-### Server
+### Server issues
 
 :::{rubric} rabbitmq-server
 :::
@@ -268,18 +271,18 @@ Therefore, only users who have taken those steps and upgrade to Noble, will be a
 
 There is an AppArmor related bug where containers cannot be promptly stopped due to the recently added AppArmor profile for `runc`. The containers are always killed with `SIGKILL` due to the denials when trying to receive a signal. More details about this bug can be found [here](https://bugs.launchpad.net/ubuntu/+source/docker.io/+bug/2063099), and a workaround is described [here](https://bugs.launchpad.net/ubuntu/+source/docker.io/+bug/2063099/comments/4).
 
-### Development
+### Development issues
 
-### Cloud
+### Cloud issues
 
 :::{rubric} Microsoft Azure
 :::
 
 The current version of walinuxagent relies on python3-legacycrypt for password changing functionality but it cannot be made a dependency due to a component mismatch ([LP: #2106484](https://launchpad.net/bugs/2106484)).
 
-### Security
+### Security issues
 
-### Hardware support
+### Hardware support issues
 
 :::{rubric} Hardware requiring `nomodeset`
 :::
@@ -334,7 +337,7 @@ PMDK sees some hardware-specific failures in its test suite, which may make the 
 
 * On server images, re-authentication to WiFi APs when regulatory domain is set result in dmesg spam to the console ([LP: #2063365](https://launchpad.net/bugs/2063365))
 
-### Common
+### Common issues
 
 :::{rubric} TPM/FDE
 :::
@@ -365,6 +368,7 @@ A bug prevents the I/O scheduler from being reset to “none” ([LP: #2083845](
 :::
 
 Support for FAN networking has been dropped in the 6.11 release kernel. It will be re-introduced in the next 6.11 kernel update shortly.
+
 
 ## Official flavors
 
