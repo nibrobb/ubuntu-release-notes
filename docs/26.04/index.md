@@ -63,8 +63,6 @@ The GNOME desktop environment has been updated to version 50:
 
 ### Security
 
-### Real-time
-
 ### Hardware support
 
 ### Common

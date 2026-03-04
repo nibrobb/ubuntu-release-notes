@@ -53,8 +53,6 @@ OpenJDK 25 is the default Java toolchain.
 
 ### Security
 
-### Real-time
-
 ### Hardware support
 
 ### Common
@@ -121,8 +119,6 @@ Other changes of importance are listed upstream:
 
 ### Security
 
-### Real-time
-
 ### Hardware support
 
 ### Common
@@ -138,8 +134,6 @@ Other changes of importance are listed upstream:
 ### Cloud
 
 ### Security
-
-### Real-time
 
 ### Hardware support
 
@@ -167,8 +161,6 @@ Apache 2 has been upgraded to upstream version 2.4.65. This new release includes
 For more details, see the [upstream release notes](https://www.apachelounge.com/Changelog-2.4.html) and the list of [security fixes](https://httpd.apache.org/security/vulnerabilities_24.html).
 
 The Debian changes for the new version have also disabled TLS 1.0 and 1.1, following RFC 8996. These should be already disabled by default in OpenSSL, and now Apache2 follows the same. See [the fixed bug](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=943415).
-
-### Real-time
 
 ### Hardware support
 
@@ -286,8 +278,6 @@ There is an AppArmor related bug where containers cannot be promptly stopped due
 The current version of walinuxagent relies on python3-legacycrypt for password changing functionality but it cannot be made a dependency due to a component mismatch ([LP: #2106484](https://launchpad.net/bugs/2106484)).
 
 ### Security
-
-### Real-time
 
 ### Hardware support
 
