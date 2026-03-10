@@ -16,65 +16,33 @@ body:
       - '27.04'
       - '27.10'
       - 'Other (specify in the description)'
+    default: '26.04 LTS'
   validations:
     required: true
 - type: checkboxes
   attributes:
-    label: Is there an existing issue for this?
+    label: Change type
     description: |
-      Please search to see if an issue already exists for this feature: https://github.com/canonical/desktop-security-center/issues.
+      What kind of change is this? Try to select just one if possible.
     options:
-    - label: I have searched the existing issues
-      required: true
-- type: textarea
+    - label: New feature or improvement
+    - label: Backwards-incompatible change, including removed features
+    - label: Deprecated feature -- will be removed in a later release
+    - label: Bug fix
+    - label: Known issue
+    - label: Something else (please describe)
+- type: checkboxes
   attributes:
-    label: Describe the bug
+    label: Part of Ubuntu
     description: |
-      A clear and concise description of what the bug is. You can also attach screenshots or recordings.
-  validations:
-    required: false
-- type: textarea
-  attributes:
-    label: Steps to reproduce the behavior
-    placeholder: |
-      1. Go to '...'
-      2. Click on '....'
-      3. Scroll down to '....'
-      4. See error
-  validations:
-    required: false
-- type: textarea
-  id: expected_behavior
-  attributes:
-    label: Expected behavior
-    description: |
-      A clear and concise description of what you expected to happen.
-  validations:
-    required: false
-- type: dropdown
-  attributes:
-    label: What architecture are you using?
-    multiple: false
+      Which part of Ubuntu does the change affect? Try to select just one if possible.
     options:
-      - amd64
-      - arm64
-      - Other (specify in the last field)
-      - I don't know
-  validations:
-    required: false
-- type: textarea
-  attributes:
-    label: System info
-    description: |
-      Please run this command in your terminal:
-      ```uname -rv && snap info snapd prompting-client desktop-security-center```
-      and paste the output here. It will give us information about your system such as the kernel version and the versions of the relevant packages.
-  validations:
-    required: false
-- type: textarea
-  attributes:
-    label: Additional context
-    description: |
-      You can attach screenshots, recordings, logs, or any other information that you think might be helpful. Please remember to anonymize any personal data.
-  validations:
-    required: false
+    - label: Desktop
+    - label: Server
+    - label: Development tools
+    - label: Enterprise
+    - label: Cloud
+    - label: Security
+    - label: Real-time Ubuntu
+    - label: Hardware support
+    - label: A common, underlying change
