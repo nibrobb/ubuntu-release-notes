@@ -1,3 +1,7 @@
+---
+tocdepth: 3
+---
+
 (ubuntu-26.04-lts-changes-since-25.10)=
 # Ubuntu 26.04 LTS changes since 25.10
 
@@ -7,20 +11,20 @@ If you're upgrading to Ubuntu 26.04 LTS from the previous interim release, Ubunt
 
 ### Desktop features
 
-:::{rubric} GNOME 50
-:::
+#### GNOME 50
+
 
 The GNOME desktop environment has been updated to version 50.
 
 ### Server features
 
-:::{rubric} cloud-init v. 25.1.1
-:::
+#### cloud-init v. 25.1.1
+
 
 ...
 
-:::{rubric} Kerberos
-:::
+#### Kerberos
+
 
 Kerberos has been configured to observe the `/etc/krb5.conf.d/` directory by default. This introduces support for third-party packages that need to add Kerberos configuration.
 
@@ -32,20 +36,20 @@ MIT Kerberos and Heimdal are both supported, but use different orderings for the
 
 ### Development features
 
-:::{rubric} Toolchain Upgrades 🛠️
-:::
+#### Toolchain Upgrades 🛠️
+
 
 * glibc 2.42 now ships non-utf8 encodings as `libc-gconv-modules-extra`.
 * LLVM 21 is the default LLVM toolchain.
 * Rust 1.93.1 is the default Rust toolchain.
 
-:::{rubric} OpenJDK
-:::
+#### OpenJDK
+
 
 OpenJDK 25 is the default Java toolchain.
 
-:::{rubric} .NET
-:::
+#### .NET
+
 
 ...
 
@@ -59,28 +63,28 @@ OpenJDK 25 is the default Java toolchain.
 
 ### Common features
 
-:::{rubric} Linux kernel 7.0 🐧
-:::
+#### Linux kernel 7.0 🐧
+
 
 * `cgroupfs` is now mounted with `nsdelegate,memory_recursiveprot,memory_hugetlb_accounting`
 
-:::{rubric} systemd v257.4
-:::
+#### systemd v257.4
+
 
 ...
 
-:::{rubric} Netplan v1.1.2 🌐
-:::
+#### Netplan v1.1.2 🌐
+
 
 ...
 
-:::{rubric} fwupd
-:::
+#### fwupd
+
 
 Systems running TPM/FDE will now prompt for the recovery key before firmware updates that may require the recovery key upon reboot.
 
-:::{rubric} sudo-rs
-:::
+#### sudo-rs
+
 
 Password feedback is now enabled by default in order to improve the user experience of `sudo`.
 If the previous behavior is preferred, password feedback can be disabled using the following steps:
@@ -88,8 +92,8 @@ If the previous behavior is preferred, password feedback can be disabled using t
 1. Edit sudoers using `sudo visudo` in the terminal
 2. Add the option `Defaults !pwfeedback` to the configuration file
 
-:::{rubric} Package Management: APT 3.0
-:::
+#### Package Management: APT 3.0
+
 
 ...
 
@@ -99,8 +103,8 @@ If the previous behavior is preferred, password feedback can be disabled using t
 
 ### Server changes
 
-:::{rubric} SSSD
-:::
+#### SSSD
+
 
 Now running under user `sssd` (instead of `root`)!
 
@@ -161,8 +165,8 @@ Other changes of importance are listed upstream:
 
 ### Security fixes
 
-:::{rubric} Apache2
-:::
+#### Apache2
+
 
 Apache 2 has been upgraded to upstream version 2.4.65. This new release includes a security fix:
 
@@ -183,73 +187,73 @@ As is to be expected with any release, there are some significant known bugs tha
 
 ### Desktop issues
 
-:::{rubric} Localization
-:::
+#### Localization
+
 
 The Live Session of the new Ubuntu Desktop installer is not localized. It is still possible to perform a non-English installation using the new installer, but internet access at install time is required to download the language packs. ([LP: #2013329](https://bugs.launchpad.net/ubuntu-release-notes/+bug/2013329))
 
-:::{rubric} Screen reader support
-:::
+#### Screen reader support
+
 
 Screen reader support is present with the new desktop installer, but is incomplete ([LP: #2061015](https://launchpad.net/bugs/2061015), [LP: #2061018](https://launchpad.net/bugs/2061018), [LP: #2036962](https://launchpad.net/bugs/2036962), [LP: #2061021](https://launchpad.net/bugs/2061021))
 
-:::{rubric} OEM installs
-:::
+#### OEM installs
+
 
 OEM installs are not supported yet. ([LP: #2048473](https://launchpad.net/bugs/2048473))
 
-:::{rubric} Virtualized GTK 4 apps
-:::
+#### Virtualized GTK 4 apps
+
 
 GTK 4 apps (including the desktop wallpaper) do not display correctly with VirtualBox or VMWare with 3D Acceleration ([LP: #2061118](https://launchpad.net/bugs/2061118)).
 
-:::{rubric} Incompatibility between TPM-backed Full Disk Encryption and Absolute
-:::
+#### Incompatibility between TPM-backed Full Disk Encryption and Absolute
+
 
 TPM-backed Full Disk Encryption (FDE) has been introduced to enhance data security. However, it’s important to note that this feature is incompatible with Absolute (formerly Computrace) security software. If Absolute is enabled on your system, the machine will not boot post-installation when TPM-backed FDE is also enabled. Therefore, disabling Absolute from the BIOS is recommended to avoid booting issues.
 
-:::{rubric} Hardware-Specific Kernel Module Requirements for TPM-backed Full Disk Encryption
-:::
+#### Hardware-Specific Kernel Module Requirements for TPM-backed Full Disk Encryption
+
 
 TPM-backed Full Disk Encryption (FDE) requires a specific kernel snap which may not include certain kernel modules necessary for some hardware functionalities. A notable example is the `vmd` module required for NVMe RAID configurations. In scenarios where such specific kernel modules are indispensable, the hardware feature may need to be disabled in the BIOS (such as RAID) to ensure the continued availability of the affected hardware post-installation. If disabling in the BIOS is not an option, the related hardware will not be available post-installation with TPM-backed FDE enabled.
 
-:::{rubric} Full-disk encryption
-:::
+#### Full-disk encryption
+
 
 See [FDE specific bug reports](https://bugs.launchpad.net/bugs/+bugs?field.searchtext=&orderby=-importance&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&field.status%3Alist=TRIAGED&field.status%3Alist=INPROGRESS&field.status%3Alist=FIXCOMMITTED&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&assignee_option=any&field.assignee=&field.bug_reporter=&field.bug_commenter=&field.subscriber=&field.tag=fde&field.tags_combinator=ANY&field.status_upstream-empty-marker=1&field.has_cve.used=&field.omit_dupes.used=&field.omit_dupes=on&field.affects_me.used=&field.has_patch.used=&field.has_branches.used=&field.has_branches=on&field.has_no_branches.used=&field.has_no_branches=on&field.has_blueprints.used=&field.has_blueprints=on&field.has_no_blueprints.used=&field.has_no_blueprints=on&search=Search).
 
-:::{rubric} Resuming from suspend on Nvidia
-:::
+#### Resuming from suspend on Nvidia
+
 
 Resuming from suspend on Nvidia desktops (where Nvidia is the primary GPU so generally not laptops)  will exhibit visual corruption and freezes using the default Wayland session  ([LP#1876632](https://bugs.launchpad.net/bugs/1876632)). If you need suspend/resume support then the simplest solution is to select ‘Ubuntu on Xorg’ at the login screen.
 
-:::{rubric} Classic fonts
-:::
+#### Classic fonts
+
 
 Installing `ubuntu-fonts-classic` results in a non-Ubuntu font being displayed ([LP#2083683](https://bugs.launchpad.net/bugs/2083683)). To resolve this, install `gnome-tweaks` and set ‘Interface Text’ to ‘Ubuntu’.
 
 ### Server issues
 
-:::{rubric} rabbitmq-server
-:::
+#### rabbitmq-server
+
 
 Certain version hops may be unsupported due to feature flags, raising questions about how Ubuntu will maintain this package moving forward. We are currently exploring the use of snaps as a potential solution to enable smoother upgrades. For more information please read <https://bugs.launchpad.net/bugs/2074309>.
 
-:::{rubric} Bacula
-:::
+#### Bacula
+
 
 Moved from our `main` repository to `universe`. All relevant Ubuntu changes are upstream now, so we directly sync this from Debian.
 
-:::{rubric} Openstack
-:::
+#### Openstack
+
 
 Currently, Nova Compute is non-functional because of a python3.13 incompatiblity ([LP:#2103413](https://bugs.launchpad.net/ubuntu/+source/nova/+bug/2103413)).
 The Openstack team and Upstream work on it and it will be resolved via an SRU later.
 
 The Ubuntu Cloud Archive is not affected by this bug.
 
-:::{rubric} Installer
-:::
+#### Installer
+
 
 On systems booting via U-Boot, U-Boot should be updated to the current Plucky version before installation as subiquity does not run flash-kernel and grub-update during the installation. So for first boot the device-tree from U-Boot will be used.
 
@@ -262,8 +266,8 @@ On systems booting via U-Boot, U-Boot should be updated to the current Plucky ve
 
 * Network interfaces left unconfigured at install time are assumed to be configured via dhcp4. If this doesn’t happen (for example, because the interface is physically not connected) the boot process will block and wait for a few minutes ([LP: #2063331](https://bugs.launchpad.net/subiquity/+bug/2063331)). This can be fixed by removing the extra interfaces from `/etc/netplan/50-cloud-init.conf` or by marking them as `optional: true`. Cloud-init is disabled on systems installed from ISO images, so settings will persist.
 
-:::{rubric} samba apparmor profile
-:::
+#### samba apparmor profile
+
 
 Due to [bug LP: #2063079](https://bugs.launchpad.net/ubuntu/+source/samba/+bug/2063079), the samba `smbd.service` unit file is no longer calling out to the helper script to dynamically create apparmor profile snippets according to the existing shares.
 
@@ -274,8 +278,8 @@ By default, the `smbd` service from samba is not confined. To be affected by thi
 
 Therefore, only users who have taken those steps and upgrade to Noble, will be affected by this bug. An SRU to fix it will be done shortly after release.
 
-:::{rubric} Docker
-:::
+#### Docker
+
 
 There is an AppArmor related bug where containers cannot be promptly stopped due to the recently added AppArmor profile for `runc`. The containers are always killed with `SIGKILL` due to the denials when trying to receive a signal. More details about this bug can be found [here](https://bugs.launchpad.net/ubuntu/+source/docker.io/+bug/2063099), and a workaround is described [here](https://bugs.launchpad.net/ubuntu/+source/docker.io/+bug/2063099/comments/4).
 
@@ -285,8 +289,8 @@ There is an AppArmor related bug where containers cannot be promptly stopped due
 
 ### Cloud issues
 
-:::{rubric} Microsoft Azure
-:::
+#### Microsoft Azure
+
 
 The current version of walinuxagent relies on python3-legacycrypt for password changing functionality but it cannot be made a dependency due to a component mismatch ([LP: #2106484](https://launchpad.net/bugs/2106484)).
 
@@ -294,8 +298,8 @@ The current version of walinuxagent relies on python3-legacycrypt for password c
 
 ### Hardware support issues
 
-:::{rubric} Hardware requiring `nomodeset`
-:::
+#### Hardware requiring `nomodeset`
+
 
 Some particular hardware (e.g. Thinkpad x201) might have issues ([general freeze](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2084055), [`desktop-security-center` not launching](https://github.com/canonical/desktop-security-center/issues/81)), when booted without `nomodeset` (Safe graphics). Follow these steps if you encounter such an issue:
 
@@ -321,13 +325,13 @@ Some particular hardware (e.g. Thinkpad x201) might have issues ([general freeze
 
 6. Finally, run `sudo update-grub` to make the change take effect.
 
-:::{rubric} PPC64EL
-:::
+#### PPC64EL
+
 
 PMDK sees some hardware-specific failures in its test suite, which may make the software partially or fully inoperable on the ppc64el architecture. ([LP: #2061913](https://bugs.launchpad.net/ubuntu/+source/pmdk/+bug/2061913/))
 
-:::{rubric} Raspberry Pi
-:::
+#### Raspberry Pi
+
 
 * The new gnome-initial-setup has some teething issues:
 
@@ -349,33 +353,33 @@ PMDK sees some hardware-specific failures in its test suite, which may make the 
 
 ### Common issues
 
-:::{rubric} TPM/FDE
-:::
+#### TPM/FDE
+
 
 TPM/FDE installs seem to fail to boot after the installation is complete ([LP: #2104316](https://bugs.launchpad.net/snap-pc/+bug/2104316)). This is an issue with the *beta* image, and it is projected to be fixed by the plucky release.
 
-:::{rubric} Netboot installs
-:::
+#### Netboot installs
+
 
 There is a bug ([LP: #2104316](https://bugs.launchpad.net/ubuntu-power-systems/+bug/2104297)) in the *beta* images that prevents netboot installs in some scenarios.
 
-:::{rubric} cloud-init upgrade
-:::
+#### cloud-init upgrade
+
 
 It has been reported that cloud-init may fail to upgrade properly in the Oracular to Pluck upgrade path, see [LP: #2104316](https://bugs.launchpad.net/ubuntu-power-systems/+bug/2104297).
 
-:::{rubric} ZFS with cryptoswap
-:::
+#### ZFS with cryptoswap
+
 
 ZFS with Encryption on Ubuntu 24.10 will [fail to activate the cryptoswap partition](https://bugs.launchpad.net/ubuntu/+source/subiquity/+bug/2084089).  This affects both new installs and upgrades.  We expect to address this post-release with an archive update.
 
-:::{rubric} I/O scheduler
-:::
+#### I/O scheduler
+
 
 A bug prevents the I/O scheduler from being reset to “none” ([LP: #2083845](https://bugs.launchpad.net/bugs/2083845)): the fix is already in Linux v6.11.2, and will be part of the first SRU kernel.
 
-:::{rubric} FAN networking
-:::
+#### FAN networking
+
 
 Support for FAN networking has been dropped in the 6.11 release kernel. It will be re-introduced in the next 6.11 kernel update shortly.
 
