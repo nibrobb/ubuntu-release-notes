@@ -358,6 +358,30 @@ For further details on the changes in this update, please refer to the upstream 
 * [v2.14.0.1](https://github.com/Azure/WALinuxAgent/releases/tag/v2.14.0.1)
 * [v2.15.0.1](https://github.com/Azure/WALinuxAgent/releases/tag/v2.15.0.1)
 
+#### OpenStack 2026.1 Gazpacho
+
+OpenStack has been updated to the [2026.1 Gazpacho](https://releases.openstack.org/gazpacho/index.html) release. Gazpacho is a [SLURP](https://releases.openstack.org/) release, supporting direct upgrades from the previous SLURP release (2025.1 Epoxy). This includes packages for Aodh, Barbican, Ceilometer, Cinder, Designate, Glance, Heat, Horizon, Ironic, Keystone, Magnum, Manila, Masakari, Mistral, Neutron, Nova, Octavia, Placement, Swift, Watcher, and Zaqar.
+
+Eventlet migration
+: Multiple projects completed or advanced the migration from Eventlet to native Python threading, including Cyborg, Designate, Manila (technology preview), Nova (experimental), and Watcher. This long-running effort modernizes OpenStack's concurrency model for long-term sustainability. Operators should review per-service concurrency configuration before upgrading.
+
+Nova (Compute)
+: Parallel live migrations improve memory transfer speed via multi-connection support. `IOThread` is now enabled by default for QEMU instances, offloading disk I/O from vCPU threads. Live migration of instances with vTPM devices is now supported in host secret security mode. The volume-attach API is asynchronous starting from microversion 2.101, and UEFI firmware selection is now delegated to `libvirt`. Full OpenAPI schema coverage has been achieved across all Nova API endpoints.
+
+Neutron (Networking)
+: A new network IP availability details API extension provides richer subnet and allocation pool usage information. OVN BGP capabilities have been integrated into the Neutron OVN driver, and ML2/OVN now supports North/South routing for external (SR-IOV, bare metal) ports as well as allowed address pairs with virtual MAC addresses. Additional OVN configuration options improve scalability.
+
+Ironic (Bare Metal)
+: NFS and CIFS/SMB transport protocols are now supported for Redfish Virtual Media boot. Two new deploy interfaces have been added: `autodetect` (selects the best interface automatically) and `noop` (marks nodes active without deploying an OS). A new standalone networking service enables physical switch management without Neutron, and VXLAN/Geneve overlay networks are now supported for bare metal nodes.
+
+Manila (Shared File Systems)
+: QoS type support allows administrators to define throughput and IOPS limits via share type extra-specs or dedicated QoS type entities. Share replica metadata, custom export locations during share management, and new back-end drivers for HPE Alletra MP B10000 are included.
+
+Horizon (Dashboard)
+: Live migration with Nova microversion 2.30 is now supported, and the Key Pairs page has been rewritten from AngularJS to Python/Django. A new configuration option avoids full container listings in the Swift panel, reducing resource consumption.
+
+For the full list of [upstream release highlights](https://releases.openstack.org/gazpacho/highlights.html), see the OpenStack 2026.1 Gazpacho documentation.
+
 ### Security features
 
 #### TPM/FDE
@@ -489,9 +513,17 @@ The `oracledb` and `zabbixagent` agents were replaced by the `oracle` and `zabbi
 ### Development changes
 
 ### Enterprise changes
+-->
 
 ### Cloud changes
 
+#### Removed features in OpenStack
+
+The Manila V1 API and the Manila shell utility have been removed.
+
+For details, see the Manila [release highlights](https://releases.openstack.org/gazpacho/highlights#manila) and [release notes](https://docs.openstack.org/releasenotes/manila/2026.1.html).
+
+<!--
 ### Security changes
 -->
 
