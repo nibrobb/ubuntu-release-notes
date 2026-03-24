@@ -317,10 +317,11 @@ Other changes of importance are listed upstream:
 * https://sssd.io/release-notes/sssd-2.11.0.html
 * https://sssd.io/release-notes/sssd-2.12.0.html
 
-#### strace
+#### Colored output with `strace`
 
 [`strace`](https://strace.io/) now supports colored output (configurable with `--color=...`, `STRACE_COLORS=...` and `NO_COLOR=1`).
 
+![Sample colored output](/images/strace-color.png)
 
 ### High availability and clustering
 
