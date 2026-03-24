@@ -464,7 +464,7 @@ Suspend-resume support is now enabled in the proprietary Nvidia driver so as to 
 
 The `linux-generic` kernel for ARM64 provides broader compatibility for ARM64 desktop platforms that utilize UEFI for booting ([LP#2121352](https://bugs.launchpad.net/ubuntu/+source/linux-signed/+bug/2121352)).
 
-#### Raspberry Pi 🍓
+#### A new boot layout for Raspberry Pi
 :::{versionadded} 25.10
 :::
 
@@ -473,31 +473,54 @@ A new layout of the boot partition is introduced to enhance the reliability of t
 :::{warning}
 Please note that, due to the new boot process, the boot firmware on your Pi *must* be up to date.
 
-* For Pi 3, 3+, and Zero 2W: no action required, the boot firmware is in the image itself.
+For Pi 3, 3+, and Zero 2W
+: No action required, the boot firmware is in the image itself.
 
-* For Pi 4: your boot firmware *must* be dated no earlier than **2022-11-25**. To check, run `sudo rpi-eeprom-update`. If your firmware is dated earlier, using Ubuntu 24.04 (noble) or later, run `sudo rpi-eeprom-update -a` and reboot.
+For Pi 4
+: Your boot firmware *must* be dated no earlier than **2022-11-25**. To check, run `sudo rpi-eeprom-update`. If your firmware is dated earlier, using Ubuntu 24.04 (noble) or later, run `sudo rpi-eeprom-update -a` and reboot.
 
-* For Pi 5: no action required, all firmware since release of the platform are compatible.
+For Pi 5
+: No action required, all firmware since release of the platform are compatible.
 :::
 
-The Ubuntu desktop images for Raspberry Pi are now based upon the "desktop-minimal" seed rather than "desktop" ([LP: #2103808](https://launchpad.net/bugs/2103808)). This greatly reduces the default set of applications installed on the images (saving approximately 777MB of space on the uncompressed image, and thus on user's systems). The list of applications removed from the image is:
+#### Raspberry Pi is based on the minimal image
+:::{versionchanged} 25.10
+:::
 
-  - deja-dup (backup service)
-  - file-roller (archive handler)
-  - gnome-calendar
-  - gnome-snapshot (camera application)
-  - libreoffice-*
-  - remmina (remote desktop client)
-  - rhythmbox (music player)
-  - shotwell (photo catalogue)
-  - simple-scan (flat-bed scanner application)
-  - thunderbird (email client)
-  - totem (video player)
-  - transmission-gtk (bittorrent client)
+The Ubuntu desktop images for Raspberry Pi are now based upon the `desktop-minimal` seed rather than `desktop` ([LP: #2103808](https://launchpad.net/bugs/2103808)). This greatly reduces the default set of applications installed on the images (saving approximately 777MB of space on the uncompressed image, and thus on user's systems).
 
-The applications mentioned above will *not* be automatically removed for upgraders as the `ubuntu-desktop` meta-package remains manually installed in this circumstance. If you wish to remove these applications (in bulk), you may do so with: `sudo apt purge ubuntu-desktop --autoremove`. If you wish to keep specific applications, simply "install" them with apt first (which will mark them as "manually installed", excluding them from automatic removal).
+:::{dropdown} The list of applications removed from the image
 
-The creation of the swap-file on the desktop images is now handled by [cloud-init](https://cloudinit.readthedocs.io/en/latest/) ([LP: #2116275](https://launchpad.net/bugs/2116275)). You may customize the size of the swapfile by editing `user-data` on the boot partition prior to first boot (commented examples are included in the image).
+  - `deja-dup` (backup service)
+  - `file-roller` (archive handler)
+  - `gnome-calendar`
+  - `gnome-snapshot` (camera application)
+  - `libreoffice-*`
+  - `remmina` (remote desktop client)
+  - `rhythmbox` (music player)
+  - `shotwell` (photo catalogue)
+  - `simple-scan` (flat-bed scanner application)
+  - `thunderbird` (email client)
+  - `totem` (video player)
+  - `transmission-gtk` (bittorrent client)
+:::
+
+The applications mentioned above will *not* be automatically removed for upgraders as the `ubuntu-desktop` meta-package remains manually installed in this circumstance. If you wish to remove these applications (in bulk), you may do so with:
+
+```{terminal}
+:user:
+:host:
+:dir:
+sudo apt purge ubuntu-desktop --autoremove
+```
+
+If you wish to keep specific applications, simply "install" them with `apt` first. This marks them as "manually installed", excluding them from automatic removal.
+
+#### Swap is created with `cloud-init` on Raspberry Pi
+:::{versionchanged} 25.10
+:::
+
+The creation of the swap file on the desktop images is now handled by [`cloud-init`](https://cloudinit.readthedocs.io/en/latest/) ([LP: #2116275](https://launchpad.net/bugs/2116275)). You may customize the size of the swap file by editing `user-data` on the boot partition prior to first boot (commented examples are included in the image).
 
 #### New RISC requirements
 :::{versionchanged} 25.10
