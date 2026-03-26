@@ -284,7 +284,7 @@ Other changes of importance are listed upstream:
 * https://sssd.io/release-notes/sssd-2.11.0.html
 * https://sssd.io/release-notes/sssd-2.12.0.html
 
-### Colored output with `strace`
+#### Colored output with `strace` 6.19
 
 [`strace`](https://strace.io/) now supports colored output (configurable with `--color=...`, `STRACE_COLORS=...` and `NO_COLOR=1`).
 
