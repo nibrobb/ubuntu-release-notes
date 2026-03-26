@@ -161,11 +161,6 @@ Any consent that you previously granted to Ubuntu Report will not be carried ove
 
 ## Server
 
-Ubuntu Server users often come from using the former LTS -- in this case 24.04 Noble Numbat. We want to remind you to check out the release notes for the interim releases as well, because all the great things that happened in the meantime do apply for you as well.
-
-- {ref}`ubuntu-24.10-release-notes`
-- {ref}`ubuntu-25.04-release-notes`
-- {ref}`ubuntu-25.10-release-notes`
 
 ### OpenSSH
 
