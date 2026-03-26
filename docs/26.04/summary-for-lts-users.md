@@ -290,9 +290,9 @@ Other changes of importance are listed upstream:
 
 ![Sample colored output](/images/strace-color.png)
 
-## High availability and clustering
+### HAProxy
 
-### Breaking changes in HAProxy
+HAProxy was updated to the latest upstream LTS release, 3.2, which introduces performance and efficiency improvements, faster and more reliable QUIC protocol support, and more. For further details on this new release, please check the HAProxy 3.2 [upstream announcement](https://www.mail-archive.com/haproxy@formilux.org/msg45917.html).
 
 For users coming from HAPRoxy 2, breaking changes include detection of accidental multiple commands sent to the Runtime API, rejecting the enabled keyword for dynamic servers, stricter parsing of non-standard URIs and renaming of `tune.ssl.ocsp-update` to `tune.ocsp-update`.
 
