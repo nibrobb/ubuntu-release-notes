@@ -13,7 +13,9 @@ Feel free to delete this template if you're making a minor or unrelated change.
 - [ ] Known issue
 - [ ] Something else (please describe)
 
-## If it's a known issue, how can users work around it for now?
+## Workaround
+
+If this is a known issue, how can users work around it for now? Add here if you haven't already described it in the PR.
 
 ## Which part of Ubuntu does the change affect? Try to select just one if possible.
 
