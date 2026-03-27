@@ -161,13 +161,11 @@ Any consent that you previously granted to Ubuntu Report will not be carried ove
 
 ## Server
 
-Ubuntu Server users often come from using the former LTS -- in this case 24.04 Noble Numbat. We want to remind you to check out the release notes for the interim releases as well, because all the great things that happened in the meantime do apply for you as well.
-
-- {ref}`ubuntu-24.10-release-notes`
-- {ref}`ubuntu-25.04-release-notes`
-- {ref}`ubuntu-25.10-release-notes`
 
 ### OpenSSH
+
+The upgrade from 1:9.6p1 in Noble included major changes each interim release,
+overall please be aware about:
 
 * Deprecation warning for SHA1 SSHFP DNS records
 * Add a warning when the connection negotiates a non-post quantum key agreement algorithm.
@@ -249,50 +247,34 @@ See [LP: #2101838](https://bugs.launchpad.net/ubuntu/+source/samba/+bug/2101838)
 
 ### Squid
 
-Squid was updated to upstream version 7.2. Coming from version 6, the main new options are:
+```{include} /reuse/26.04/squid-7.2-features.txt
+```
 
-* Add tls_key_log directive to log TLS master keys.
-
-* Add key-extras format to external ACL helpers to pass transaction details.
-
-* Add doh_query directive to send DNS queries over HTTPS.
-
-* Add cache_peer option tls-client-cert-switch to select client certificates dynamically.
-
-Several bugfixes for crash scenarios are also included in this major release.
-
-Some directives and options were removed/deprecated:
-
-* Removed client_delay_access directive.
-
-* Removed ftp_epsv directive.
-
-* Removed cache_peer option no-netdb-exchange.
-
-* Removed client_persistent_connections and server_persistent_connections directives.
+```{include} /reuse/26.04/squid-7.2-removals.txt
+```
 
 For a list of all changes and fixes, please check the [upstream releases page](https://github.com/squid-cache/squid/releases).
 
 ### SSSD
 
-SSSD now runs under user `sssd` (instead of `root`). Make sure that `sssd` can still access secrets or integrations from its new user.
+```{include} /reuse/26.04/sssd-2.12-features.txt
+```
 
-The implicit files provider and domain was removed: see <https://sssd.io/docs/files-provider-deprecation.html>.
+```{include} /reuse/26.04/sssd-2.12-changes.txt
+```
 
-Other changes of importance are listed upstream:
-
+* https://sssd.io/release-notes/sssd-2.10.0.html
 * https://sssd.io/release-notes/sssd-2.11.0.html
 * https://sssd.io/release-notes/sssd-2.12.0.html
 
-### Colored output with `strace`
+### Colored output with `strace` 6.19
 
-[`strace`](https://strace.io/) now supports colored output (configurable with `--color=...`, `STRACE_COLORS=...` and `NO_COLOR=1`).
+```{include} /reuse/26.04/strace-6.19.txt
+```
 
-![Sample colored output](/images/strace-color.png)
+### HAProxy
 
-## High availability and clustering
-
-### Breaking changes in HAProxy
+HAProxy was updated to the latest upstream LTS release, 3.2, which introduces performance and efficiency improvements, faster and more reliable QUIC protocol support, and more. For further details on this new release, please check the HAProxy 3.2 [upstream announcement](https://www.mail-archive.com/haproxy@formilux.org/msg45917.html).
 
 For users coming from HAPRoxy 2, breaking changes include detection of accidental multiple commands sent to the Runtime API, rejecting the enabled keyword for dynamic servers, stricter parsing of non-standard URIs and renaming of `tune.ssl.ocsp-update` to `tune.ocsp-update`.
 

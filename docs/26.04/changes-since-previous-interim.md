@@ -89,6 +89,28 @@ New features and important changes in 4.23:
 * SMB3 Unix Extensions enabled by default
 * NetBios is disabled by default in the configuration file `/etc/samba/smb.conf` for fresh installs
 
+(26.04-sssd-2.12)=
+#### SSSD
+
+```{include} /reuse/26.04/sssd-2.12-features.txt
+```
+
+See also {ref}`26.04-sssd-changes`.
+
+Other changes of importance are listed upstream:
+
+* https://sssd.io/release-notes/sssd-2.11.0.html
+* https://sssd.io/release-notes/sssd-2.12.0.html
+
+#### Squid
+
+```{include} /reuse/26.04/squid-7.2-features.txt
+```
+
+See also {ref}`26.04-squid-removals`.
+
+For a list of all changes and fixes, please check the [upstream releases page](https://github.com/squid-cache/squid/releases).
+
 #### SoS (`sosreport`)
 
 SoS was updated to 4.10.2. This upgrade introduces new plugins and also adds new features to existing plugins.
@@ -97,9 +119,8 @@ For more information see the [4.10.1](https://github.com/sosreport/sos/releases/
 
 #### Colored output with `strace` 6.19
 
-[`strace`](https://strace.io/) now supports colored output (configurable with `--color=...`, `STRACE_COLORS=...` and `NO_COLOR=1`).
-
-![Sample colored output](/images/strace-color.png)
+```{include} /reuse/26.04/strace-6.19.txt
+```
 
 ### Container features
 
@@ -264,11 +285,22 @@ DocumentDB is now available in Ubuntu, starting with version 0.108-0. It is a po
 
 #### MariaDB is fully supported
 
+MariaDB was updated to the latest LTS version 11.8.6.
+For more information on the MariaDB LTS, see the [upstream release notes](https://mariadb.com/docs/release-notes/community-server/11.8).
+
 Starting with 26.04, MariaDB will now be provided with [full support in Ubuntu main](https://bugs.launchpad.net/ubuntu/+source/mariadb/+bug/2122095).
 
 MariaDB was updated to the latest LTS version 11.8.6. For more information on the MariaDB LTS, [see the upstream release notes](https://mariadb.com/docs/release-notes/community-server/11.8).
 
 The MySQL and MariaDB servers are mutually exclusive on Ubuntu for now.
+
+#### MySQL
+
+MySQL’s current LTS version 8.4 is provided in Ubuntu 26.04, starting with version 8.4.8. Future security fixes will be provided by 8.4.x version updates. For more information see the [upstream release notes](https://dev.mysql.com/doc/relnotes/mysql/8.4/en/).
+
+#### MySQL Shell
+
+MySQL Shell was updated to the latest LTS version, 8.4.8, to match MySQL’s version. See the [upstream release notes](https://dev.mysql.com/doc/relnotes/mysql-shell/8.4/en/) for more information.
 
 #### Percona Toolkit
 
@@ -492,19 +524,30 @@ The `blkmapd` and `nfs-blkmap` services have been removed. From the `NEWS` file:
 >
 > Users of pNFS are advised to move to the revised SCSI/NVMe layouts  that are safe to use and don't require the use of blkmapd.
 
-#### SSSD 2.12
+(26.04-sssd-changes)=
+#### Breaking changes in SSSD
 
-SSSD has been updated to version 2.12.
+```{include} /reuse/26.04/sssd-2.12-changes.txt
+```
 
-SSSD now runs under user `sssd` (instead of `root`). Make sure that `sssd` can still access secrets or integrations from its new user.
+Other changes of importance are listed upstream:
 
-The implicit files provider and domain was removed: see <https://sssd.io/docs/files-provider-deprecation.html>.
+* https://sssd.io/release-notes/sssd-2.11.0.html
+* https://sssd.io/release-notes/sssd-2.12.0.html
 
-#### PHP
+#### Breaking changes in PHP
 
 * It is no longer possible to use `array` and `callable` as class alias names in `class_alias()`.
 
 Other breaking changes and new features can be seen in the [full upstream changelog](https://www.php.net/ChangeLog-8.php#PHP_8_5).
+
+(26.04-squid-removals)=
+#### Removed options and directives in Squid
+
+```{include} /reuse/26.04/squid-7.2-removals.txt
+```
+
+For a list of all changes and fixes, please check the [upstream releases page](https://github.com/squid-cache/squid/releases).
 
 #### Kerberos removes deprecated algorithms from its default lists
 
@@ -649,17 +692,11 @@ Updated to 2.4.2. See the [upstream announcement](https://dovecot.org/mailman3/a
 
 Postfix was updated to version 3.10.6. See the [upstream announcement](https://www.postfix.org/announcements/postfix-3.10.6.html).
 
+A noteworthy change in the packaging of Postfix is that **by default it is no longer installed in a chroot, and only limited chroot support is available from now on**.
+
 #### `unbound` 1.24.2
 
 Update to version 1.24.2. See the [upstream changelog](https://github.com/NLnetLabs/unbound/releases/tag/release-1.24.2).
-
-### Database fixes
-
-#### MySQL 8.4.8
-
-MySQL’s current LTS version 8.4 is provided in Ubuntu 26.04, starting with version 8.4.8. Future security fixes will be provided by 8.4.x version updates. For more information [see the upstream release notes](https://dev.mysql.com/doc/relnotes/mysql/8.4/en/).
-
-MySQL Shell was updated to the latest LTS version, 8.4.8, to match MySQL’s version. See the [upstream release notes](https://dev.mysql.com/doc/relnotes/mysql-shell/8.4/en/) for more information.
 
 <!--
 ### Development fixes
