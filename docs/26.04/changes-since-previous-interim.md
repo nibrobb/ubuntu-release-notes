@@ -95,10 +95,14 @@ New features and important changes in 4.23:
 ```{include} /reuse/26.04/sssd-2.12.txt
 ```
 
-### Squid
+#### Squid
 
-```{include} /reuse/26.04/squid-7.2.txt
+```{include} /reuse/26.04/squid-7.2-features.txt
 ```
+
+See also {ref}`26.04-squid-removals`.
+
+For a list of all changes and fixes, please check the [upstream releases page](https://github.com/squid-cache/squid/releases).
 
 #### SoS (`sosreport`)
 
@@ -522,6 +526,14 @@ Please see above {ref}`for the changes to the user handling <26.04-sssd-2.12>`
 * It is no longer possible to use `array` and `callable` as class alias names in `class_alias()`.
 
 Other breaking changes and new features can be seen in the [full upstream changelog](https://www.php.net/ChangeLog-8.php#PHP_8_5).
+
+(26.04-squid-removals)=
+#### Removed options and directives in Squid
+
+```{include} /reuse/26.04/squid-7.2-removals.txt
+```
+
+For a list of all changes and fixes, please check the [upstream releases page](https://github.com/squid-cache/squid/releases).
 
 ### Database changes
 

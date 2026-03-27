@@ -1,0 +1,9 @@
+Some directives and options were removed in Squid 7.2:
+
+* Removed `client_delay_access` directive.
+
+* Removed `ftp_epsv` directive.
+
+* Removed `cache_peer` option `no-netdb-exchange`.
+
+* Removed `client_persistent_connections` and `server_persistent_connections` directives.
