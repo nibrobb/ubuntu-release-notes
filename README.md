@@ -1,17 +1,25 @@
 # Ubuntu release notes
 
-To file a new release note, either edit these source files directly or open an issue.
+This repository stores the sources for the Ubuntu release notes.
 
-## Structure
+The content is written in the MyST dialect of Markdown, built using Sphinx and published on Read the Docs.
 
-This section outlines the structure of this repository, and some key files.
+## Read the release notes
 
-### `docs/`
+To browse the release notes for current and upcoming Ubuntu releases, go to <https://documentation.ubuntu.com/release-notes/>.
 
-This directory contains the documentation.
+## Contribute
 
-To view it in your browser, navigate to this directory and type `make run`.
+To add or edit a release note, see [How to contribute to Ubuntu release notes](https://documentation.ubuntu.com/release-notes/contribute/).
 
-### `.github/workflows/`
+## Build the documentation
 
-This directory contains files used for documentation build checks via GitHub's CI.
+To build the documentation locally, use Sphinx:
+
+```bash
+cd docs
+```
+
+```bash
+make run
+```
