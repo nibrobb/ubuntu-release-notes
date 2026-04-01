@@ -17,7 +17,7 @@ The following is an overview of the major changes.
 
 * Firefox 🔥🦊 has been updated [to version 149](https://www.firefox.com/en-US/firefox/148.0/releasenotes/) / [150](https://www.firefox.com/en-US/firefox/148.0/releasenotes/).
 * LibreOffice 📚 has been updated from version 24.2 [to 25.8](https://wiki.documentfoundation.org/ReleaseNotes/25.8).
-* Thunderbird 🌩️🐦 has been updated [to version 128 "Supernova"](https://blog.thunderbird.net/2023/07/our-fastest-most-beautiful-release-ever-thunderbird-XY-supernova-is-here/).
+* Thunderbird 🌩️🐦 has been updated [to version 140 "Eclipse"](https://blog.thunderbird.net/2025/07/welcome-to-thunderbird-140-eclipse/).
 * GNU Image Manipulation Program 🖼️ has received a major update from version 2.10 [to 3.0](https://www.gimp.org/news/2025/03/16/gimp-3-0-released/).
 
 ### GNOME 50
