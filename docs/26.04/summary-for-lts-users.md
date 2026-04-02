@@ -180,6 +180,26 @@ overall please be aware about:
 
 For full upstream release notes for all releases, please consult https://www.openssh.org/releasenotes.html
 
+### PHP
+
+PHP was updated to version 8.5. Among other enhancements and bugfixes, the highlighted changes since Ubuntu Noble 24.04 are:
+
+* Property hooks
+* Asymmetric visibility
+* Updated DOM API
+* A new URI Extension
+* The Pipe Operator
+* Clone With functionality
+* The `#[\NoDiscard]` Attribute
+* Closures and First-Class Callables in Constant Expressions
+* Persistent `cURL` Share Handles
+* `array_first()` and `array_last()` functions
+
+For more details, breaking changes and other features, see the upstream release notes:
+
+* [PHP 8.4](https://www.php.net/releases/8.4/en.php)
+* [PHP 8.5](https://www.php.net/releases/8.5/en.php)
+
 ### Dovecot
 
 Updated to 2.4.2. Version 2.4 introduced many changes to the Dovecot configuration format!
