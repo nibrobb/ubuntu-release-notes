@@ -273,10 +273,12 @@ For a list of all changes and fixes, please check the [upstream releases page](h
 ```
 
 ### HAProxy
+:::{versionchanged} 26.04
+:::
 
 HAProxy was updated to the latest upstream LTS release, 3.2, which introduces performance and efficiency improvements, faster and more reliable QUIC protocol support, and more. For further details on this new release, please check the HAProxy 3.2 [upstream announcement](https://www.mail-archive.com/haproxy@formilux.org/msg45917.html).
 
-For users coming from HAPRoxy 2, breaking changes include detection of accidental multiple commands sent to the Runtime API, rejecting the enabled keyword for dynamic servers, stricter parsing of non-standard URIs and renaming of `tune.ssl.ocsp-update` to `tune.ocsp-update`.
+For users coming from HAProxy 2, breaking changes include detection of accidental multiple commands sent to the Runtime API, rejecting the enabled keyword for dynamic servers, stricter parsing of non-standard URIs and renaming of `tune.ssl.ocsp-update` to `tune.ocsp-update`.
 
 You can learn more at [Announcing HAProxy 3.0](https://www.haproxy.com/blog/announcing-haproxy-3-0). A complete list of changes is available in the [upstream changelog](https://www.haproxy.org/download/3.0/src/CHANGELOG).
 
