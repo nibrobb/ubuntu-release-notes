@@ -164,7 +164,7 @@ Any consent that you previously granted to Ubuntu Report will not be carried ove
 
 ### OpenSSH
 
-The upgrade from 24.04 (which had 1:9.6p1) to 1:10.2p1 includes major changes, please be aware about:
+The upgrade from Ubuntu 24.04 LTS, which had OpenSSH 1:9.6p1, to OpenSSH 1:10.2p1 includes major changes. Note the following:
 
 * Deprecation warning for SHA1 SSHFP DNS records
 * Add a warning when the connection negotiates a non-post quantum key agreement algorithm.
@@ -181,30 +181,40 @@ For full upstream release notes for all releases, please consult https://www.ope
 
 ### Chrony
 
-* used as default time daemon replacing *systemd-timesyncd* for new installations
-  * to migrate existing systems after the 26.04 upgrade, run `apt-mark auto systemd-timesyncd && apt install chrony`.
-* NTS (authenticated & encrypted NTP) by default using Ubuntu project time servers
+* Chrony is now used as the default time daemon replacing `systemd-timesyncd` for new installations.
+
+    To migrate existing systems after the upgrade to Ubuntu 26.04 LTS, use the following commands:
+
+    ```bash
+    apt-mark auto systemd-timesyncd
+    apt install chrony
+    ```
+
+* NTS (authenticated & encrypted NTP) by default uses Ubuntu project time servers.
+
 * Ubuntu's NTP servers are defined in a [new snippet](https://discourse.ubuntu.com/t/improving-chrony-time-source-configuration-in-ubuntu/47850) in `/etc/chrony/sources.d/ubuntu-ntp-pools.sources`.
-  * If you edited `/etc/chrony/chrony.conf`, make sure to remember the servers now in the above file are not used twice.
-* Specific release notes since 24.04's chrony `4.5` are at https://chrony-project.org/news.html#_27_aug_2025_chrony_4_8_released
+
+    If you edited `/etc/chrony/chrony.conf`, ensure that the servers defined in `/etc/chrony/sources.d/ubuntu-ntp-pools.sources` are not used twice.
+
+* Specific release notes since Chrony version 4.5, which was found in Ubuntu 24.04 LTS, are at <https://chrony-project.org/news.html#_27_aug_2025_chrony_4_8_released>.
 
 ### ClamAV
 
 Updated to 1.4.3 with many new features
 
-* scanning attachments found in Microsoft OneNote section files
-* extracting Universal Disk Format (UDF) partitions
-* extracting embedded images in HTML CSS `<style>` blocks
-* extracting alz/lha/lzh archives
-* toggle for image fuzzu hashing
-* improvements for VBA extraction in office documents
-* custom clean file cache size with `--cache-size` (uses more RAM)
-* `systemd.timer` for running `freshclam`
-* better limit handling for large files
-* client certificates for authentication to a private Freshclam mirror
-* virus database minimal age
+* Scanning attachments found in Microsoft OneNote section files
+* Extracting Universal Disk Format (UDF) partitions
+* Extracting embedded images in HTML CSS `<style>` blocks
+* Extracting `alz` and `lha`/`lzh` archives
+* Toggle for image fuzzy hashing
+* Improvements for VBA extraction in office documents
+* Custom clean file cache size with `--cache-size` (uses more RAM)
+* A `systemd.timer` unit for running `freshclam`
+* Better limit handling for large files
+* Client certificates for authentication to a private Freshclam mirror
+* Virus database minimal age
 
-For complete details of all changes leading up to 1.4.3, please see the upstream release notes at: https://blog.clamav.net/
+For complete details of all changes leading up to 1.4.3, please see the upstream release notes at <https://blog.clamav.net/>.
 
 ### Dovecot
 
