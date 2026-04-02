@@ -829,10 +829,6 @@ The Openstack team and Upstream work on it and it will be resolved via an SRU la
 The Ubuntu Cloud Archive is not affected by this bug.
 -->
 
-#### Microsoft Azure
-
-The current version of `walinuxagent` relies on `python3-legacycrypt` for password changing functionality but it cannot be made a dependency due to a component mismatch ([LP: #2106484](https://launchpad.net/bugs/2106484)).
-
 #### Installer
 
 On systems booting via U-Boot, U-Boot should be updated to the current Plucky version before installation as subiquity does not run flash-kernel and grub-update during the installation. So for first boot the device-tree from U-Boot will be used.
