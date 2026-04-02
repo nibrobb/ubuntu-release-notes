@@ -164,8 +164,7 @@ Any consent that you previously granted to Ubuntu Report will not be carried ove
 
 ### OpenSSH
 
-The upgrade from 1:9.6p1 in Noble included major changes each interim release,
-overall please be aware about:
+The upgrade from 24.04 (which had 1:9.6p1) to 1:10.2p1 includes major changes, please be aware about:
 
 * Deprecation warning for SHA1 SSHFP DNS records
 * Add a warning when the connection negotiates a non-post quantum key agreement algorithm.
@@ -179,6 +178,33 @@ overall please be aware about:
 * Starting with 1:9.6p1-3ubuntu17, openssh server no longer reads `~/.pam_environment` of the target system upon login. See [LP: #2059859](https://bugs.launchpad.net/ubuntu/+source/openssh/+bug/2059859/) for details.
 
 For full upstream release notes for all releases, please consult https://www.openssh.org/releasenotes.html
+
+### Chrony
+
+* used as default time daemon replacing *systemd-timesyncd* for new installations
+  * to migrate existing systems after the 26.04 upgrade, run `apt-mark auto systemd-timesyncd && apt install chrony`.
+* NTS (authenticated & encrypted NTP) by default using Ubuntu project time servers
+* Ubuntu's NTP servers are defined in a [new snippet](https://discourse.ubuntu.com/t/improving-chrony-time-source-configuration-in-ubuntu/47850) in `/etc/chrony/sources.d/ubuntu-ntp-pools.sources`.
+  * If you edited `/etc/chrony/chrony.conf`, make sure to remember the servers now in the above file are not used twice.
+* Specific release notes since 24.04's chrony `4.5` are at https://chrony-project.org/news.html#_27_aug_2025_chrony_4_8_released
+
+### ClamAV
+
+Updated to 1.4.3 with many new features
+
+* scanning attachments found in Microsoft OneNote section files
+* extracting Universal Disk Format (UDF) partitions
+* extracting embedded images in HTML CSS `<style>` blocks
+* extracting alz/lha/lzh archives
+* toggle for image fuzzu hashing
+* improvements for VBA extraction in office documents
+* custom clean file cache size with `--cache-size` (uses more RAM)
+* `systemd.timer` for running `freshclam`
+* better limit handling for large files
+* client certificates for authentication to a private Freshclam mirror
+* virus database minimal age
+
+For complete details of all changes leading up to 1.4.3, please see the upstream release notes at: https://blog.clamav.net/
 
 ### Dovecot
 
@@ -207,7 +233,7 @@ Samba has been updated to the new upstream 4.23 version. Changes since Ubuntu No
 * Netlogon Ping over LDAP and LDAPS
 * Experimental Himmelblaud Authentication in Samba
 * AD DC schema upgrade and provision performance improvements
-* LDAP TLS/SASL channel binding support
+* LDAP TLS/SASL [channel binding support](https://www.samba.org/samba/history/samba-4.20.3.html)
 * Group Managed Service Accounts
 * Samba can now claim Functional Level 2012R2 support
 * Some Samba public libraries made private by default
@@ -267,7 +293,7 @@ For a list of all changes and fixes, please check the [upstream releases page](h
 * https://sssd.io/release-notes/sssd-2.11.0.html
 * https://sssd.io/release-notes/sssd-2.12.0.html
 
-### Colored output with `strace` 6.19
+### strace
 
 ```{include} /reuse/26.04/strace-6.19.txt
 ```
