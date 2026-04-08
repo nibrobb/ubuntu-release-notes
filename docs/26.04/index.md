@@ -33,7 +33,9 @@ See our {ref}`release-policy-and-schedule`.
 
 ## Requirements and compatibility
 
-Ubuntu Desktop 26.04 LTS requires a 2 GHz dual-core processor or better, a minimum of 6GB RAM and 25 GB of free hard drive space.
+Ubuntu Desktop 26.04 LTS requires a 2 GHz dual-core processor or better, a minimum of 6GB RAM and 25 GB of free hard drive space for a smooth experience.
+
+Although it's possible to install Ubuntu Desktop on systems with lower specifications, we recommend using an [Ubuntu flavor](https://ubuntu.com/desktop/flavors) instead in that case. For example, you can install [Xubuntu](https://xubuntu.org/) or [Lubuntu](https://lubuntu.me/) on systems with 2 GB RAM or more.
 
 Requirements for Ubuntu Server 26.04 LTS [scale with your specific use case](https://ubuntu.com/server/docs/reference/installation/system-requirements/),
 starting as low as 1.5 GB RAM and 4 GB of hard drive space.
