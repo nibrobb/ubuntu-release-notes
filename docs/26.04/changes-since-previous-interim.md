@@ -793,21 +793,29 @@ OEM installs are not supported yet. ([LP: #2048473](https://launchpad.net/bugs/2
 
 GTK 4 apps (including the desktop wallpaper) do not display correctly with VirtualBox or VMWare with 3D Acceleration ([LP: #2061118](https://launchpad.net/bugs/2061118)).
 
-#### Incompatibility between TPM-backed full disk encryption and Absolute
+#### Limitations of TPM-backed full disk encryption
 
-TPM-backed full disk encryption (TPM/FDE) has been introduced to enhance data security. However, it’s important to note that this feature is incompatible with the Absolute (formerly Computrace) security software.
+TPM-backed full disk encryption (TPM/FDE) has been introduced to enhance data security. The following are its known issues and limitations as of the Ubuntu 26.04.0 LTS release:
 
-If Absolute is enabled on your system, the machine will not boot post-installation when TPM/FDE is also enabled. Therefore, disabling Absolute from the BIOS is recommended to avoid booting issues.
+* Some potentially eligible systems might be detected as **ineligible** for TPM/FDE.
 
-#### Hardware-specific kernel module requirements for TPM-backed full disk encryption
+* If you **forget the passphrase or PIN** and you boot your system with the recovery key, you can't remove or replace the passphrase or PIN anymore. On subsequent boots, you have to continue using your recovery key.
 
-TPM-backed full disk encryption (TPM/FDE) requires a specific kernel snap which may not include certain kernel modules necessary for some hardware functionalities. A notable example is the `vmd` module required for NVMe RAID configurations.
+* **Disk re-encryption** is currently not supported.
 
-In scenarios where such specific kernel modules are indispensable, the hardware feature may need to be disabled in the BIOS (such as RAID) to ensure the continued availability of the affected hardware post-installation. If disabling in the BIOS is not an option, the related hardware will not be available post-installation with TPM/FDE enabled.
+* Certain **self-healing and reparation options** for defective systems after installation are currently missing.
 
-#### Full-disk encryption
+* TPM/FDE is incompatible with the **Absolute** (formerly **Computrace**) security software.
 
-See [FDE specific bug reports](https://bugs.launchpad.net/bugs/+bugs?field.searchtext=&orderby=-importance&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&field.status%3Alist=TRIAGED&field.status%3Alist=INPROGRESS&field.status%3Alist=FIXCOMMITTED&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&assignee_option=any&field.assignee=&field.bug_reporter=&field.bug_commenter=&field.subscriber=&field.tag=fde&field.tags_combinator=ANY&field.status_upstream-empty-marker=1&field.has_cve.used=&field.omit_dupes.used=&field.omit_dupes=on&field.affects_me.used=&field.has_patch.used=&field.has_branches.used=&field.has_branches=on&field.has_no_branches.used=&field.has_no_branches=on&field.has_blueprints.used=&field.has_blueprints=on&field.has_no_blueprints.used=&field.has_no_blueprints=on&search=Search).
+    If Absolute is enabled on your system, the machine will not boot post-installation when TPM/FDE is also enabled. Therefore, disabling Absolute from the BIOS is recommended to avoid booting issues.
+
+* TPM/FDE requires a specific kernel snap which may not include certain **kernel modules** necessary for some hardware functionalities. A notable example is the `vmd` module required for **NVMe RAID** configurations.
+
+    In scenarios where such specific kernel modules are needed, you might have to disable the hardware feature (such as RAID) in the firmware to ensure the continued availability of the affected hardware post-installation. If disabling in the firmware is not an option, the related hardware will not be available post-installation with TPM/FDE enabled.
+
+    **Nvidia drivers** are the only out-of-tree kernel drivers supported by TPM/FDE. You can't install other third-party drivers using DKMS.
+
+For other known issues, see [FDE specific bug reports](https://bugs.launchpad.net/bugs/+bugs?field.searchtext=&orderby=-importance&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&field.status%3Alist=TRIAGED&field.status%3Alist=INPROGRESS&field.status%3Alist=FIXCOMMITTED&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&assignee_option=any&field.assignee=&field.bug_reporter=&field.bug_commenter=&field.subscriber=&field.tag=fde&field.tags_combinator=ANY&field.status_upstream-empty-marker=1&field.has_cve.used=&field.omit_dupes.used=&field.omit_dupes=on&field.affects_me.used=&field.has_patch.used=&field.has_branches.used=&field.has_branches=on&field.has_no_branches.used=&field.has_no_branches=on&field.has_blueprints.used=&field.has_blueprints=on&field.has_no_blueprints.used=&field.has_no_blueprints=on&search=Search).
 
 #### Resuming from suspend on Nvidia
 
