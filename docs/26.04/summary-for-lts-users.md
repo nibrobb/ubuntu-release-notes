@@ -545,6 +545,16 @@ New [TPM-backed disk encryption](https://canonical-ubuntu-desktop-documentation.
 
 For details, see [Hardware-backed disk encryption](https://documentation.ubuntu.com/desktop/en/latest/explanation/hardware-backed-disk-encryption/) in the Ubuntu Desktop documentation.
 
+### cargo-auditable
+:::{versionadded} 25.10
+:::
+
+Rust packages built on Launchpad now have opt-in support for [cargo-auditable](https://github.com/ubuntu/ubuntu-release-notes).
+If enabled, binaries will include JSON-formatted metadata in a header section of the binary expressing the dependencies used to compile the binary.
+If a CVE is discovered in a popular Rust crate, this dependency metadata lets users and sysadmins immediately check if a binary is compromised.
+
+For details, see the [Ubuntu project documentation](https://documentation.ubuntu.com/project/contributors/language-specific/rust/cargo-auditable/).
+
 ## Hardware support
 
 ### NVIDIA Dynamic Boost
