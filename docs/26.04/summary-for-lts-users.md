@@ -522,6 +522,12 @@ The Active Directory Group Policy client for Ubuntu supports the latest Polkit a
 
 On all cloud providers, `AMD64` based images are now built with `AMD64v3` by default. This effort begins with 26.04 Resolute Racoon images and will continue with future releases.
 
+### Google Cloud
+
+All Resolute 26.04 images are now built with `AMD64v3` by default. However, this means that the following CPU platforms available on `N1` machine types are no longer supported:
+* Intel Ivy Bridge
+* Intel Sandy Bridge
+
 ## Security
 
 ### New AppArmor sandboxing profiles
