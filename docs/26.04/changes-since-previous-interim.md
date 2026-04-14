@@ -106,6 +106,14 @@ Finally several packages were updated to their latest upstream version to pick u
 * `libdfp`, mainly fixes ([LP: #2122325](https://launchpad.net/bugs/2122325))
 * `smc-tools` for fixes and additional statistics output ([LP: #2142098](https://launchpad.net/bugs/2142098))
 
+#### Updated cryptography libraries
+
+OpenSSL has been updated to the latest upstream LTS [3.5.6](https://launchpad.net/ubuntu/+source/openssl).
+
+Here is a blog highlighting some of the [Post Quantum Support in Ubuntu 26.04 LTS](https://discourse.ubuntu.com/t/post-quantum-support-in-the-upcoming-26-04-lts/76840).
+
+Additionally, GnuTLS has been upgraded to the version 3.8.12, NSS to verions [3.120](https://launchpad.net/ubuntu/+source/nss/2:3.120-1ubuntu2), libgcrypt to version 1.12.0, and libsodium to version 1.0.18 (includes security fixes from [1.0.21](https://github.com/jedisct1/libsodium/releases/tag/1.0.21-RELEASE))
+
 ### Desktop features
 
 #### GNOME 50

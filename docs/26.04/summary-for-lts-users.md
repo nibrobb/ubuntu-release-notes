@@ -545,6 +545,19 @@ New [TPM-backed disk encryption](https://canonical-ubuntu-desktop-documentation.
 
 For details, see [Hardware-backed disk encryption](https://documentation.ubuntu.com/desktop/en/latest/explanation/hardware-backed-disk-encryption/) in the Ubuntu Desktop documentation.
 
+### Post-quantum cryptography support
+:::{versionadded} 25.10
+:::
+
+The OpenSSL library comes with several notable updates since Ubuntu 24.04:
+
+* QUIC client and server support
+* Support for post-quantum cryptography (PQC) algorithms (ML-KEM, ML-DSA and SLH-DSA)
+* Broader EVP coverage
+* Various performance improvements
+
+For more information, see [Post Quantum Support in the upcoming 26.04 LTS](https://discourse.ubuntu.com/t/post-quantum-support-in-the-upcoming-26-04-lts/76840).
+
 ### cargo-auditable
 :::{versionadded} 25.10
 :::
