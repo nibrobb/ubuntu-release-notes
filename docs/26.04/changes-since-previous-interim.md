@@ -600,7 +600,13 @@ IBM Z generation z14 (LinuxONE II) is still supported by Ubuntu Server 24.04 LTS
 
 ### Desktop changes
 
-...
+#### Google Drive integration in Files has been removed
+
+The GNOME Online Accounts (GOA) service has removed Google Drive integration. As a result, you can no longer mount your Google Drive storage in the Files app.
+
+The feature was removed becase the `libgdata` library, which enabled the integration, has been unmaintained and posed a security risk.
+
+You can still access Google Drive through your web browser.
 
 ### Server changes
 
