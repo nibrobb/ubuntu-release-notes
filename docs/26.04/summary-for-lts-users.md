@@ -464,7 +464,7 @@ Ubuntu on WSL follows the platform-wide migration from `systemd-timesyncd` to `c
 
 `Binfmt` miscellaneous registrations are integral to Windows binary interoperability within WSL. Previously, the `systemd-binfmt.service` unit was disabled to mitigate against various potential issues. As of WSL 2.5.7, this system override is no longer necessary because the platform now incorporates a robust fix utilizing `systemd generators`.
 
-Users relying on `systemd-binfmt.service` to apply new registrations when installing packages, for example, will now find it works without compromising the binary interop. To learn more, please check out [our docs about binfmt](https://documentation.ubuntu.com/wsl/stable/explanation/binfmt/).
+Users relying on `systemd-binfmt.service` to apply new registrations when installing packages, for example, will now find it works without compromising the binary interoperability. To learn more, please check out [our docs about `binfmt`](https://documentation.ubuntu.com/wsl/stable/explanation/binfmt/).
 
 ### User setup
 
