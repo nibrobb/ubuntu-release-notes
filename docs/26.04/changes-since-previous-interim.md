@@ -1017,19 +1017,3 @@ There is also a possibility of more open permissions being set for the directori
 See the Ubuntu bug at [LP: #2138215](https://bugs.launchpad.net/ubuntu/+source/acl/+bug/2138215) and the upstream bug at [Issue #11036](https://github.com/uutils/coreutils/issues/11036).
 
 This issue was also present in Ubuntu 25.10.
-
-
-## Official flavors
-
-Find the release notes for the official flavors at the following links:
-
-* [Edubuntu Release Notes](https://discourse.ubuntu.com/t/edubuntu-26-04-beta-released/)
-* [Kubuntu Release Notes](https://kubuntu.org/news/kubuntu-26-04-release-notes/)
-* [Lubuntu Release Notes](https://lubuntu.me/lubuntu-25-04-p-p-released/)
-* [Ubuntu Budgie Release Notes](https://ubuntubudgie.org/blog/ubuntu-budgie-2604-lts-release-notes/)
-* [Ubuntu MATE Release Notes](https://ubuntu-mate.org/blog/ubuntu-mate-p-p-release-notes/)
-* [Ubuntu Studio Release Notes](https://discourse.ubuntu.com/t/ubuntu-studio-26.04-release-notes/)
-* [Xubuntu Release Notes](https://xubuntu.org/releasedocs/26.04/release-notes/)
-* [Ubuntu Unity Release Notes](https://ubuntuunity.org/posts/ubuntu-unity-2604-release-notes/)
-* [Ubuntu Kylin Release Notes](https://ubuntukylin.com/news/ubuntukylin2604-en.html)
-* [Ubuntu Cinnamon Release Notes](https://ubuntucinnamon.org/?p=1348)
