@@ -874,7 +874,9 @@ A bug prevents the I/O scheduler from being reset to “none” ([LP: #2083845](
 
 Support for FAN networking has been dropped in the 6.11 release kernel. It will be re-introduced in the next 6.11 kernel update shortly.
 
+#### POSIX ACL Inheritance with `mkdir`
 
+On 26.04 (and 25.10 systems), POSIX ACLs are not always appropriately being inherited from parent directories. If a directory has ACLs set, and `mkdir -p` is called, the created parents do not appropriately inherit ACLs. There is also a possibility of more open permissions being set for the directories. This is tracked in [LP: #2138215](https://bugs.launchpad.net/ubuntu/+source/acl/+bug/2138215) and upstream at [Issue #11036](https://github.com/uutils/coreutils/issues/11036).
 
 ### Desktop issues
 
