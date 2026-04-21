@@ -845,6 +845,71 @@ An automatic pager has been added to `apt(8)` for commands such as show and list
 
 The `apt-key` command has been removed. Signature verification now makes direct use of `gpgv`. Some packages and system administration scripts may need adjustment for managing keys directly, advice can be found in the `apt-secure(8)` manual page.
 
+#### History management in APT
+:::{versionadded} 25.10
+:::
+
+APT now provides an interface for viewing and manipulating its command history.
+
+- **List** changes:
+
+    ```none
+    $ apt history-list
+    ID   Command line             Date and Time          Action    Changes
+
+    0    install cowsay           2026-04-23  17:00:00   Install   1
+    1    upgrade                  2026-04-23  18:15:00   Upgrade   25
+    2    build-dep .              2026-04-24  18:30:00   Install   4
+    ```
+
+- **Inspect** changes:
+
+    ```none
+    $ apt history-info 0
+    Transaction ID: 0
+    Start time: 2026-04-23  17:00:00
+    End time: 2026-04-23  17:00:05
+    Requested by: raccoon (1000)
+    Command line: apt install cowsay
+    Packages changed:
+        Install cowsay:amd64 (3.03+dfsg2-8build1)
+    ```
+
+- **Undo** changes:
+
+    ```none
+    $ sudo apt history-undo 0
+    REMOVING:
+    cowsay
+
+    Summary:
+    Upgrading: 0, Installing: 0, Removing: 1, Not Upgrading: 0
+    Freed space: 89.1 kB
+
+    Continue? [Y/n]
+    ```
+
+- **Redo** changes:
+
+    ```none
+    $ sudo apt history-redo 0
+    cowsay is already the newest version (3.03+dfsg2-8build1).
+    Summary:
+    Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 0
+    ```
+
+- **Rollback** to a specific change:
+
+    ```none
+    $ sudo apt history-rollback 1
+    REMOVING:
+    libtext-unidecode-perl  tex-common  texinfo  texinfo-lib
+
+    Summary:
+    Upgrading: 0, Installing: 0, Removing: 4, Not Upgrading: 0
+    Freed space: 8119 kB
+    ```
+
 ### Dracut
 :::{versionchanged} 25.10
 :::
