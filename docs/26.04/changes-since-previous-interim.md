@@ -34,16 +34,18 @@ Systems running TPM/FDE will now prompt for the recovery key before firmware upd
 
 #### Linux kernel 7.0 🐧
 
-* Ubuntu 26.04 is shipping with the Linux kernel 7.0, based on the upstream final release.
+Ubuntu 26.04 LTS is shipping with the Linux kernel 7.0, based on the upstream final release. Some notable features and changes:
+
 * Following the [upstream change](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9fa7153c31a3), the Rust programming language experiement has been deemed concluded and its support is not flagged as experimental anymore. 
 * Upstream Linux kernel 7.0 delivers improved support for Intel® Core™ Ultra Series 3 processors (codenamed Panther Lake), introducing targeted optimizations for Intel Xe3 integrated graphics and the integrated NPU (Neural Processing Unit).
 * `cgroupfs` is now mounted with `nsdelegate,memory_recursiveprot,memory_hugetlb_accounting`.
 * Integrated IgH EtherCAT Master module and Generic driver ([LP: #2138621](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2138621)). These modules provide real-time performance for industrial EtherCAT networks.
-* The real-time linux kernel is available in the main archive (outside of Ubuntu Pro) in 26.04. Following the `PREEMPT_RT` patches being upstreamed, the 26.04 release of the real-time kernel is available for free for anyone to use.
+* The real-time Linux kernel is available in the main archive (outside of Ubuntu Pro) in Ubuntu 26.04 LTS. Following the `PREEMPT_RT` patches being upstreamed, the Ubuntu 26.04 LTS release of the real-time kernel is available for free for anyone to use.
 * Kernel Livepatch now supports the ARM64 architecture.
-* ZFS updated to the latest 2.4.1 version ([upstream changelog](https://github.com/openzfs/zfs/releases/tag/zfs-2.4.1)).
+* ZFS has been updated to the latest 2.4.1 version ([upstream changelog](https://github.com/openzfs/zfs/releases/tag/zfs-2.4.1)).
 * DOCA-OFED 26.01 kernel modules are available for the Ubuntu generic and select derivative kernels.
-* Other features can be found in the [Linux 7.0 upstream changelog](https://kernelnewbies.org/Linux_7.0).
+
+Other features can be found in the [Linux 7.0 upstream changelog](https://kernelnewbies.org/Linux_7.0).
 
 #### Netplan v1.1.2 🌐
 

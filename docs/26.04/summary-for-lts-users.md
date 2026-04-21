@@ -665,6 +665,7 @@ If you wish to keep specific applications, simply "install" them with `apt` firs
 
 The creation of the swap file on the desktop images is now handled by [`cloud-init`](https://cloudinit.readthedocs.io/en/latest/) ([LP: #2116275](https://launchpad.net/bugs/2116275)). You may customize the size of the swap file by editing `user-data` on the boot partition prior to first boot (commented examples are included in the image).
 
+(resolute-new-risc-v-requirements)=
 ### New RISC-V requirements
 :::{versionchanged} 25.10
 :::
@@ -729,12 +730,9 @@ For users running the GA generic stack, the Linux kernel has been updated from v
 
 * The RISC-V kernel supports only architectures compliant with the RVA23S64 ISA profile.
 
-    :::{versionadded} 25.10
-    :::
+    For details, see {ref}`resolute-new-risc-v-requirements`.
 
-* Because the RISC-V RVA23 profile requires newer instruction sets, most first-generation RISC-V development boards are incompatible with Ubuntu 26.04. Users of older hardware are encouraged to remain on Ubuntu 24.04 LTS.
-
-    :::{versionremoved} 25.10
+    :::{versionchanged} 25.10
     :::
 
 * `linux-generic` for arm64 provides via `stubble` broader compatibility for arm64 desktop platforms that utilize UEFI for booting ([LP: #2121352](https://bugs.launchpad.net/ubuntu/+source/linux-signed/+bug/2121352)).
