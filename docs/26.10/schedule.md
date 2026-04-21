@@ -1,5 +1,5 @@
-(s-s-schedule)=
-# Ubuntu S S Release Schedule
+(stonking-stingray-schedule)=
+# Ubuntu Stonking Stingray Release Schedule
 
 <!-- migrated from https://discourse.ubuntu.com/t/s-s-release-schedule/47201 -->
 
