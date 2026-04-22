@@ -24,10 +24,36 @@ The following is an overview of the major changes.
 
 The GNOME desktop environment has been updated to version 50. Notable changes since GNOME 46 found in  Ubuntu 24.04 LTS include the following:
 
-* GNOME 50:
+:::{rubric} From GNOME 47
+:::
 
-    ```{include} /reuse/26.04/gnome-50-news.txt
-    ```
+* Support for small screens has been enhanced. Dialog windows are also more usable on narrow screens.
+* Screen recording can be hardware-accelerated.
+* Application rendering is now more responsive on slower devices.
+* Remote login sessions persist if you disconnect.
+* The file selection dialog is now based on the Files app, enabling more features.
+* The Files app improves the navigation of network resources and other locations. It also shows more information on your search progress.
+* Accessibility settings add the *Activate windows on hover* option.
+* Keyboard settings show a preview of your keyboard layout in the add dialog.
+* Power settings add new suspend timers for mobile devices.
+* The Web app can automatically fill forms, comes with a redesigned bookmarks sidebar and provides a privacy report.
+* In the Calendar app, the event details popover has been redesigned.
+
+:::{rubric} From GNOME 48
+:::
+
+todo
+
+:::{rubric} From GNOME 49
+:::
+
+todo
+
+:::{rubric} From GNOME 50
+:::
+
+```{include} /reuse/26.04/gnome-50-news.txt
+```
 
 Other major highlights:
 
