@@ -827,6 +827,7 @@ Action is only needed if you specified the old types explicitly in your old syst
 -->
 
 
+(resolute-known-issues)=
 ## Known issues
 
 As is to be expected with any release, there are some significant known bugs that users may encounter with this release of Ubuntu. The ones we know about at this point (and some of the workarounds) are documented here, so you don’t need to spend time reporting these bugs again:

@@ -1141,6 +1141,8 @@ For details about the switch, see [the specification](https://discourse.ubuntu.c
 
 ## More details
 
+You can find the {ref}`resolute-known-issues` in this release on a separate page.
+
 For a complete list of changes in Ubuntu 26.04 LTS, refer to the following documents, depending on the Ubuntu release that you're upgrading from:
 
 - {ref}`ubuntu-24.10-release-notes`
