@@ -79,7 +79,7 @@ Week | Date (Thursday) | Planned activity
 24 | October 08 | 
 25 | October 15 | 
 
-## Ubuntu S S Release Task Signup Sheet
+## Ubuntu Stonking Stingray Release Task Signup Sheet
 
 This signup sheet is to be used for planning release milestone tasks.
 

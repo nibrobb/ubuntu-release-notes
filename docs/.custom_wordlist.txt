@@ -572,6 +572,7 @@ memlock
 metacharacters
 metapackage
 micmute
+microarchitecture
 microversion
 microvm
 middleware
@@ -953,10 +954,13 @@ Taroko
 Tauros
 tcmalloc
 tcpdump
+TD
+TDs
 teardown
 Techboard
 tecla
 Tegra
+telco
 Telit
 tempfile
 Temujin

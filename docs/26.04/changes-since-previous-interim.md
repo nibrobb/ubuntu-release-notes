@@ -36,10 +36,10 @@ Systems running TPM/FDE will now prompt for the recovery key before firmware upd
 
 Ubuntu 26.04 LTS is shipping with the Linux kernel 7.0, based on the upstream final release. Some notable features and changes:
 
-* Following the [upstream change](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9fa7153c31a3), the Rust programming language experiement has been deemed concluded and its support is not flagged as experimental anymore. 
+* Following the [upstream change](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9fa7153c31a3), the Rust programming language experiment has been deemed concluded and its support is not flagged as experimental anymore. 
 * Upstream Linux kernel 7.0 delivers improved support for Intel® Core™ Ultra Series 3 processors (codenamed Panther Lake), introducing targeted optimizations for Intel Xe3 integrated graphics and the integrated NPU (Neural Processing Unit).
 * `cgroupfs` is now mounted with `nsdelegate,memory_recursiveprot,memory_hugetlb_accounting`.
-* Integrated IgH EtherCAT Master module and Generic driver ([LP: #2138621](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2138621)). These modules provide real-time performance for industrial EtherCAT networks.
+* Integrated IgH EtherCAT module and Generic driver ([LP: #2138621](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2138621)). These modules provide real-time performance for industrial EtherCAT networks.
 * The real-time Linux kernel is available in the main archive (outside of Ubuntu Pro) in Ubuntu 26.04 LTS. Following the `PREEMPT_RT` patches being upstreamed, the Ubuntu 26.04 LTS release of the real-time kernel is available for free for anyone to use.
 * Kernel Livepatch now supports the ARM64 architecture.
 * ZFS has been updated to the latest 2.4.1 version ([upstream changelog](https://github.com/openzfs/zfs/releases/tag/zfs-2.4.1)).
@@ -289,27 +289,20 @@ For a comprehensive list of changes, please check the [upstream release notes](h
 
 #### Virtualization stack
 
-The virtualization stack got various updates and to provide more flexibility an additional
-hardware enablement option was added that will in addition allow to switch to the
-virtualization stack of the following interim releases while otherwise staying on the LTS.
+```{include} /reuse/26.04/virt-hwe-feature.txt
+```
+
+In addition, the virtualization stack got following updates since Ubuntu 25.10 (Questing):
 
 #### libvirt
 
 The libvirt package was upgraded to version 12.0.0. Here is the important changes since Ubuntu Questing:
 
-* Several new features have been added into the `bhyve` driver:
+* libvirt: Better firmware selection
 
-* Experimental NAT networking support using the Packet Filter (`pf`) firewall.
+* libvirt: More statistics for block devices on QEMU domains
 
-* Querying domain block, interface, and memory statistics. Not all statistics fields are supported though.
-
-* SLIRP networking support
-
-* NVMe device support
-
-* `virtio-scsi` support
-
-* Initial ARM64 support
+* libvirt: Support for NUMA affinity of PCI devices
 
 * Multi-GPU: Add support for NUMA affinity of PCI devices
 
@@ -333,15 +326,9 @@ Some additional notable changes:
 
 The QEMU package was upgraded to version 10.2.1. Here is the important changes since Ubuntu Questing:
 
-Upgrading Windows 11 makes the VM stop working and to fix this issue and ensure the migration path, we added new machine types for Resolute and old Ubuntu releases:
+* qemu: The HPET device does not take the big QEMU lock anymore.
 
-* `pc-i440fx-questing-v2` Ubuntu 25.10 PC v2 (i440FX + PIIX, + 10.1 machine, 1996)
-
-* `pc-i440fx-noble-v2`   Ubuntu 24.04 LTS PC v2 (i440FX + PIIX, `arch-caps` fix, 1996)
-
-* `pc-q35-noble-v2`      Ubuntu 24.04 LTS PC v2 (Q35 + ICH9, `arch-caps` fix, 2009)
-
-Other notable new features:
+* qemu: Loading multiple x509 cert+key identities to allow the use of parallel certificates with different algorithms. This is needed to facilitate the transition to post-quantum cryptography.
 
 * ARM
 
@@ -804,6 +791,21 @@ A noteworthy change in the packaging of Postfix is that **by default it is no lo
 #### `unbound` 1.24.2
 
 Update to version 1.24.2. See the [upstream changelog](https://github.com/NLnetLabs/unbound/releases/tag/release-1.24.2).
+
+#### Qemu - Handling Windows 11 upgrades
+
+* Upgrading [Windows 11 can make the VM stop working](https://bugs.launchpad.net/ubuntu/+source/qemu/+bug/2131822).
+  On the qemu version in 26.04 LTS this is already fixed right away. But to fix this issue in 24.04 Noble
+  and 25.10 Questing we needed to add new machine types. To ensure the migration path to 26.04 LTS
+  and ensure the migration path the same types are kept here as well:
+
+* `pc-i440fx-questing-v2`
+* `pc-i440fx-noble-v2`
+* `pc-q35-noble-v2`
+
+Any newly started guest on these older releases will automatically pick up the
+new versions but due to the above still able to migrate.
+Action is only needed if you specified the old types explicitly in your old systems.
 
 <!--
 ### Development fixes

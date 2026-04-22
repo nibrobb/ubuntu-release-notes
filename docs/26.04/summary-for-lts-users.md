@@ -437,6 +437,64 @@ MySQL Shell was updated from major version 8.0 to 8.4 to coincide with MySQL 8.4
 
 For the `containerd` and `runc` packages, we established a pattern to either keep the regular updates to the latest version or to opt for slower, more stable updates throughout the time the release is active. For more please read [Ubuntu Server Gazette - Issue 8 - Containers: Steady paths for agile stacks](https://discourse.ubuntu.com/t/ubuntu-server-gazette-issue-8-containers-steady-paths-for-agile-stacks/68680).
 
+### Virtualization stack
+
+A stack as active as that of `qemu`, `libvirt`, `edk2`, and `seabios` had too
+many great new features and fixes to list them all. The upgrades between each
+interim release like {ref}`libvirt@24.10 <libvirt-24.10>`,
+{ref}`qemu@25.10 <qemu-25.04>`, or {ref}`edk2@25.10 <edk2-25.10>`
+are already so huge they can only cover a selected high-level summary.
+Each version adds various new emulated instructions, new CPU types and
+virtualized platforms, which would be beyond the scope of release notes.
+Here are just a few to motivate you to check out all the other
+per-release changes and the related upstream announcements.
+
+:::{versionadded} 26.04
+:::
+
+* libvirt: Better firmware selection
+* libvirt More statistics for block devices on QEMU domains
+* libvirt: Support for NUMA affinity of PCI devices
+* libvirt+qemu: Support for NVIDIA Multi-Instance GPU (MIG) configurations
+* qemu: Hyper-V host model mode
+* qemu: The HPET device does not take the big QEMU lock anymore
+* qemu: Support for loading multiple x509 cert+key identities (for transition to post-quantum cryptography)
+
+:::{versionadded} 26.04
+:::
+
+```{include} /reuse/26.04/virt-hwe-feature.txt
+```
+
+:::{versionadded} 25.10
+:::
+
+* libvirt: ppc64 POWER11 processor support
+* libvirt: Control over QEMU TLS priority strings
+* libvirt: Support for NVMe disks
+* libvirt: Support for AMD IOMMU device
+* libvirt+qemu+edk2: Support for Intel TDX
+* qemu: Support for the [RVA23 Profile](https://riscv.org/blog/risc-v-rva23-a-major-milestone/)
+* qemu: Support for s390x generation 17 mainframe CPUs
+* qemu: Support for true `virtio-scsi` multiqueue
+
+:::{versionadded} 25.04
+:::
+
+* libvirt: Zero block detection for non-shared-storage migration
+* libvirt: Support for versioned qemu CPU models
+* libvirt+qemu+edk2: Support for AMD `SEV-SNP`
+* qemu: Support for RISC-V privilege 1.13 spec
+* qemu: Support for MTE on ARM KVM-based VMs
+
+:::{versionadded} 24.10
+:::
+
+* qemu: `virtio-blk` device has gained true multiqueue support where different queues of a single disk can be processed by different I/O threads. This can improve scalability in cases where the guest submitted enough I/O to saturate the host CPU running a single I/O thread processing the virtio-blk requests. Multiple I/O threads can be configured using the new `iothread-vq-mapping` property.
+* qemu: Support for emulating various new RISC-V instructions like the `Zacas`, `Zaamo`, `Zalrsc`, and `Ztso` extensions
+* libvirt: Support for clusters in CPU topology.
+* libvirt: New `dynamicMemslots` attribute for virtio-mem
+
 ### High availability and clustering
 
 * The **`kpartx-boot`** package has been discontinued to align with Debian. Originally introduced to support `dmraid` booting, its functionality is preserved, as the `kpartx` package now includes everything previously provided by `kpartx-boot`.
@@ -498,7 +556,7 @@ Documentation and download resources are available in [the documentation](https:
 ## Development
 
 * GCC 🐄 has been updated from version 14 to 15.2, `binutils` from 2.42 to 2.46, and `glibc` from 2.39 to 2.43.
-* Python 🐍 has been updated from version 3.12 to 3.13.9, while 3.14 is also available.
+* Python 🐍 has been updated from version 3.12 to 3.14.
 * LLVM 🐉 has been updated from version 18 to 21.
 * Rust 🦀 has been updated from version 1.75 to 1.93, while 1.91 and 1.92 are also available.
 * Golang 🐀 has been updated from version 1.22 to 1.25.
@@ -587,6 +645,19 @@ All Resolute 26.04 images are now built with `AMD64v3` by default. However, this
 
 Automatic in-place upgrades to Ubuntu Pro will be fixed in [ubuntu-pro-client](https://github.com/canonical/ubuntu-pro-client/pull/3532) (to be included in the next point release)
 
+### Amazon Web Services (AWS)
+
+This transition impacts several Previous Generation Instance families. While AWS maintains these for legacy optimizations, they do not meet the microarchitecture requirements for Resolute Raccoon.
+
+The following instance families are no longer supported starting with version 26.04:
+* General Purpose: M1, M2, M3, M4
+* Compute Optimized: C1, C3, C4
+* Memory Optimized: R3, R4
+* Storage/Accelerated: I2, G3, P2, P3, P3dn
+
+Learn more about the [AWS Previous Generation Instances](https://docs.aws.amazon.com/ec2/latest/instancetypes/pg.html) to identify migration paths to current-generation instances
+
+
 ## Security
 
 ### New AppArmor sandboxing profiles
@@ -624,6 +695,30 @@ The OpenSSL library comes with several notable updates since Ubuntu 24.04:
 
 For more information, see [Post Quantum Support in the upcoming 26.04 LTS](https://discourse.ubuntu.com/t/post-quantum-support-in-the-upcoming-26-04-lts/76840).
 
+### Intel® Trusted Domain Extensions (TDX) host support
+:::{versionadded} 25.10
+:::
+
+Intel® Trusted Domain Extensions (TDX) is a hardware-based confidential computing technology that isolates virtual machines into secure Trusted Domains (TDs). TDX protects guest workloads from the hypervisor, host OS, and other VMs by encrypting memory and enforcing strong, hardware-level isolation.
+
+TDX is designed for cloud and virtualized environments where workload confidentiality must be preserved in shared, multi-tenant infrastructure.
+
+Benefits for the user:
+
+- Isolated multi-tenant compute: Ensures VM memory and data remain confidential even in shared cloud environments.
+- Secure cloud migration: Enables customers to move sensitive workloads from on-premises environments to the cloud with confidence.
+- Reduced data-breach risk: Hardware-based isolation significantly limits attack surface exposure.
+
+Supported use cases:
+
+- Confidential cloud workloads
+- Secure telco and enterprise virtual machines
+- Financial and healthcare secure workloads
+
+Ubuntu supports Intel TDX for both host and guest operating systems. Guest support is available from Ubuntu 24.04 LTS onwards, while host support began with Ubuntu 25.10.
+
+To learn how to use Intel TDX, see [Confidential Computing with Intel Trust Domain Extensions (TDX)](https://ubuntu.com/server/docs/how-to/virtualisation/intel-tdx/).
+
 ### cargo-auditable
 :::{versionadded} 25.10
 :::
@@ -648,18 +743,52 @@ Dynamic Boost will be active only when the laptop is powered by AC and there is 
 
 For more details refer to [NVIDIA's documentation](https://download.nvidia.com/XFree86/Linux-x86_64/570.133.07/README/dynamicboost.html).
 
-### Support for new Intel® integrated and discrete GPUS
+### Support for new Intel® integrated and discrete GPUs
+
+This release brings full support for the following Intel® Arc™ “Battlemage” and “Celestial” GPUs:
+
+* Integrated:
+  * Intel® Core™ Ultra Xe2 and Xe3
+* Discrete:
+  * Intel® Arc™ 5 B570 and B580
+  * Intel® Arc™ Pro B50, B60, B65, and B70
+
+Moreover, the following features are also included:
+
 :::{versionadded} 25.04
 :::
-
-This release brings full support for Intel® Core™ Ultra Xe2 integrated Intel® Arc™ graphics, and Intel® Arc™ B580 and B570 “Battlemage” discrete GPUs.
-Moreover, the following features are also included:
 
 * Improved GPU and CPU ray tracing rendering performance in applications with Intel Embree support, such as Blender (v4.2+). Ray tracing hardware acceleration on the GPU improves frame rendering by 20-30%, due to a 2-4x speed-up for the ray tracing component.
 * Full hardware accelerated video encoding of AVC, JPEG, HEVC, and AV1 on “Battlemage” devices.
 * Introduction of the new CCS optimization in Intel® Compute Runtime.
 * Enable debugging support for Intel Xe GPUs.
 * oneAPI Level Zero Ray Tracing improves AI/ML workload speeds via Embree on SYCL
+
+:::{versionadded} 25.10
+:::
+
+Via the [Linux kernel](https://launchpad.net/ubuntu/+source/linux) version 6.17
+: - Initial support for Intel’s next-gen client platform codenamed Panther Lake.
+  - Enhanced IOMMU and PCIe subsystem for improved GPU virtualization and passthrough.
+  - Improved multi-GPU configuration support for Intel hardware.
+
+Via [Mesa](https://launchpad.net/ubuntu/+source/mesa) version 25.2.3
+: - `VK_KHR_shader_bfloat16` enabled in Intel ANV Vulkan driver for Battlemage and Panther Lake (GFX125+).
+  - Completed OpenCL 2.0 coarse grain buffer SVM support in Iris driver.
+  - Improved color fast-clear handling and multi-engine surface usage for Intel Vulkan (ANV) driver.
+
+Via [`intel-media-driver`](https://launchpad.net/ubuntu/+source/intel-media-driver) version 25.3.0
+: - Panther Lake Upstream decoding and VP9 encoding support.
+
+Via [`intel-compute-runtime`](https://launchpad.net/ubuntu/+source/intel-compute-runtime) version 25.31
+: - Enabling a Level Zero device unified shared memory (USM) pool as a performance change.
+  - A performance-minded change for Xe2 graphics to ensure Level Zero events are always allocated in the local device memory.
+ 
+Via [`level-zero`](https://launchpad.net/ubuntu/+source/level-zero) version 1.24
+: - Update Level Zero Loader and Headers to support v1.13.1 of L0 Spec
+
+Via [`level-zero-raytracing`](https://launchpad.net/ubuntu/+source/level-zero-gpu-raytracing) version 1.1.0
+: - Ray Tracing Acceleration Structure (RTAS) Extensions
 
 ### Suspend with Nvidia
 :::{versionadded} 25.10
@@ -815,7 +944,7 @@ For users running the GA generic stack, the Linux kernel has been updated from v
     :::{versionadded} 26.04
     :::
 
-* Integrated IgH EtherCAT Master module and Generic driver ([LP: #2138621](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2138621)). These modules provide real-time performance for industrial EtherCAT networks.
+* Integrated IgH EtherCAT module and Generic driver ([LP: #2138621](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2138621)). These modules provide real-time performance for industrial EtherCAT networks.
 
     :::{versionadded} 26.04
     :::
