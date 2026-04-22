@@ -1053,6 +1053,7 @@ vCPUs
 vdec
 vdso
 vendored
+Ventoy
 ventura
 ver
 Versal
