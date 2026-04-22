@@ -254,6 +254,8 @@ linkcheck_ignore = [
     r"https://lubuntu\.me/.*",
     # Filenames in text incorrectly parsed as URLs by the link checker
     r"http://[^\s/]+\.(py|sh|mk|in)$",
+    # Servers being migrated right now - ignore for now
+    r"https://ubuntukylin\.com/.*",
     # Dead links in existing content (historical; not worth updating)
     r"https://github\.com/docker-snap/.*",
     r"https://github\.com/ipxe/.*",
