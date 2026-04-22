@@ -646,7 +646,7 @@ Supported use cases:
 
 Ubuntu supports Intel TDX for both host and guest operating systems. Guest support is available from Ubuntu 24.04 LTS onwards, while host support began with Ubuntu 25.10.
 
-To learn how to use Intel TDX, see <https://ubuntu.com/server/docs/how-to/virtualisation/intel-tdx/>.
+To learn how to use Intel TDX, see [Confidential Computing with Intel Trust Domain Extensions (TDX)](https://ubuntu.com/server/docs/how-to/virtualisation/intel-tdx/).
 
 ### cargo-auditable
 :::{versionadded} 25.10
