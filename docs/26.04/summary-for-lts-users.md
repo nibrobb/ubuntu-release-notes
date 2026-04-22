@@ -77,8 +77,51 @@ The GNOME desktop environment has been updated to version 50. Notable changes si
 * Fractional scaling factors are now optimized so as to minimize blur.
 * The default monospace font size has been reduced to match the default user interface font size. The monospace font is used in terminals and similar applications.
 * The [Sysprof](https://apps.gnome.org/Sysprof/) app is installed by default as a new system utility. This makes it easier to discover performance issues in your apps.
+* New parental controls
+* Fractional scaling enabled by default
+* HDR and VRR (Variable Refresh Rate) support
 
 For details, see the upstream release notes: [GNOME 47](https://release.gnome.org/47/), [GNOME 48](https://release.gnome.org/48/), [GNOME 49](https://release.gnome.org/49/) and [GNOME 50](https://release.gnome.org/50/).
+
+#### Added GNOME Shell search provider for snap applications
+
+GNOME Shell global search gained the ability to search for the available snap
+applications that match the search criteria.
+
+This feature can be disabled in the Search panel of the Settings app.
+
+#### Added GNOME Shell search provider for web search
+
+It's now possible to initiate a web search with the user default browser from
+the GNOME Shell global search in the overview.
+
+This feature can be disabled in the Search panel of the Settings app.
+
+#### Accessibility improvements and fixes
+
+On top of the upstream improvements, the ubuntu extensions and have been
+improved to address better various accessibility requirements
+
+#### Yaru theme updates
+
+[Yaru theme](https://github.com/ubuntu/yaru) got major updates gaining a look
+closer to the upstream one, and with lots icon updates.
+
+#### Improved integration with snap applications
+
+Snap applications using [XDG Desktop Portals](https://flatpak.github.io/xdg-desktop-portal/) are now better integrated into the desktop, and users can
+fully manage their access permissions and be able to any resource outside the
+confinement in a natural way.
+
+In particular:
+
+* It's possible to open files or directories located in any path of the system
+  with other desktop applications (for example it's possible to open any file
+  with the file-manager using a snap application, wherever it is located, and
+  both with explicit open or via drang-and-drop).
+* It's possible to use Camera, Notification, USB and other XDG Desktop portals
+* Snap application portal permissions can be controlled in GNOME Settings
+
 
 ### New document viewer
 :::{versionchanged} 25.04
