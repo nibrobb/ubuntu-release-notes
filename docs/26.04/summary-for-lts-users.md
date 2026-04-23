@@ -994,7 +994,26 @@ See [Ubuntu Server Docs](https://documentation.ubuntu.com/server/how-to/security
 
 The core utilities of the operating system are now provided by the [`rust-coreutils`](https://launchpad.net/ubuntu/+source/rust-coreutils) package. Among other things, this brings significant performance improvements, such as in the `base64` tool.
 
-Since `rust-coreutils` are not necessarily fully compatible yet, we continue to provide the classic GNU utilities as well. You can switch back and forth between them.
+Because `rust-coreutils` are not fully compatible yet, we continue to provide the classic GNU utilities as well. These are accessed by running `gnu` prefixed to the desired command. For example:
+
+```none
+gnuls
+```
+
+Alternatively, you can switch between the two sets of utilities by running the following commands:
+
+To switch to GNU coreutils:
+: ```none
+  sudo apt install coreutils-from-gnu --allow-remove-essential
+  ```
+
+To switch back to rust-coreutils:
+: ```none
+  sudo apt install coreutils-from-uutils --allow-remove-essential
+  ```
+
+Because of unresolved bugs, the `cp`, `mp`, and `rm` utilities are still from GNU in `rust-coreutils`.
+For more information, see [An update on rust-coreutils](https://discourse.ubuntu.com/t/an-update-on-rust-coreutils/80773).
 
 
 ### Architecture variants and `amd64v3`
