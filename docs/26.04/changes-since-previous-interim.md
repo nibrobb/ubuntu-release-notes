@@ -763,6 +763,14 @@ Ubuntu 26.04 LTS is the last release that supports System V service scripts comp
 
 ## Bug fixes
 
+### Desktop fixes
+
+#### Resuming from suspend on Nvidia
+
+Previously, resuming from suspend with an Nvidia GPU exhibited visual corruption and freezes using the default Wayland session. This happened on systems where Nvidia was the primary GPU, which were generally desktop and not laptops. With this release, the bug has been fixed and resuming causes no visual corruption or freezes.
+
+For details, see [LP#1876632](https://bugs.launchpad.net/bugs/1876632).
+
 ### Server fixes
 
 #### Apache 2.4.65
@@ -872,10 +880,6 @@ TPM-backed full disk encryption (TPM/FDE) has been introduced to enhance data se
     **Nvidia drivers** are the only out-of-tree kernel drivers supported by TPM/FDE. You can't install other third-party drivers using DKMS.
 
 For other known issues, see [FDE specific bug reports](https://bugs.launchpad.net/bugs/+bugs?field.searchtext=&orderby=-importance&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&field.status%3Alist=TRIAGED&field.status%3Alist=INPROGRESS&field.status%3Alist=FIXCOMMITTED&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&assignee_option=any&field.assignee=&field.bug_reporter=&field.bug_commenter=&field.subscriber=&field.tag=fde&field.tags_combinator=ANY&field.status_upstream-empty-marker=1&field.has_cve.used=&field.omit_dupes.used=&field.omit_dupes=on&field.affects_me.used=&field.has_patch.used=&field.has_branches.used=&field.has_branches=on&field.has_no_branches.used=&field.has_no_branches=on&field.has_blueprints.used=&field.has_blueprints=on&field.has_no_blueprints.used=&field.has_no_blueprints=on&search=Search).
-
-#### Resuming from suspend on Nvidia
-
-Resuming from suspend on Nvidia desktops (where Nvidia is the primary GPU so generally not laptops)  will exhibit visual corruption and freezes using the default Wayland session  ([LP#1876632](https://bugs.launchpad.net/bugs/1876632)). If you need suspend/resume support then the simplest solution is to select ‘Ubuntu on Xorg’ at the login screen.
 
 #### Classic fonts
 
