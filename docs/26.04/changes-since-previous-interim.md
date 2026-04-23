@@ -992,22 +992,6 @@ As reported in a [Linux mailing list](https://lore.kernel.org/lkml/2026040319194
 
     While this is not strictly a 26.04 installer issue, we recommend people using Ventoy to downgrade to version 1.1.10 or to flash the ISO directly to a USB drive, as instructed [in the Ubuntu documentation](https://documentation.ubuntu.com/desktop/en/26.04/how-to/create-a-bootable-usb-stick/).
 
-#### Custom partitioning on s390x might fail
-
-On the `s390x` architecture, custom partitioning for Direct-Access Storage Devices (DASD) with the Extended Count Key Data (ECKD) format using the `ext4` file system might fail.
-
-The installation might fail in the following scenario:
-
-- Several partitions are specified, and not just the root partition.
-- The root partition isn't the last one. Note that a DASD ECKD disk supports up to three possible partitions.
-- The `ext4` file system is used for the root partition.
-
-To work around the issue, ensure that the root partition is specified as the last partition or the only partition. For example, this layout works:
-
-- 1st partition: `/boot`
-- 2nd partition: `swap`
-- 3rd partition: `/` (`root`)
-
 ### Cloud issues
 
 #### Google cloud
@@ -1055,6 +1039,22 @@ Some particular hardware (e.g. Thinkpad x201) might have issues ([general freeze
 * With the removal of the `crda` package in 22.04, the method of setting the WiFi regulatory domain (editing `/etc/default/crda`) no longer operates. On server images, use the `regulatory-domain` option in the Netplan configuration. On desktop images, append `cfg80211.ieee80211_regdom=GB` (substituting `GB` for the relevant country code) to the kernel command line in the `cmdline.txt` file on the boot partition  ([LP: #1951586](https://launchpad.net/bugs/1951586)).
 
 * On server images, re-authentication to WiFi APs when regulatory domain is set result in `dmesg` spam to the console ([LP: #2063365](https://launchpad.net/bugs/2063365))
+
+#### Custom partitioning on s390x might fail
+
+On the `s390x` architecture, custom partitioning for Direct-Access Storage Devices (DASD) with the Extended Count Key Data (ECKD) format using the `ext4` file system might fail.
+
+The installation might fail in the following scenario:
+
+- Several partitions are specified, and not just the root partition.
+- The root partition isn't the last one. Note that a DASD ECKD disk supports up to three possible partitions.
+- The `ext4` file system is used for the root partition.
+
+To work around the issue, ensure that the root partition is specified as the last partition or the only partition. For example, this layout works:
+
+- 1st partition: `/boot`
+- 2nd partition: `swap`
+- 3rd partition: `/` (`root`)
 
 #### Netboot installs
 
