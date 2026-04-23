@@ -427,6 +427,7 @@ For the full list of [upstream release highlights](https://releases.openstack.or
 * `glibc` is now at [version 2.43](https://sourceware.org/pipermail/libc-alpha/2026-January/174374.html), which includes ISO C23 changes.
 * LLVM 21 is the default LLVM toolchain.
 * Rust 1.93.1 is the default Rust toolchain.
+* .NET 10 is now available
 
 #### OpenJDK
 
@@ -434,7 +435,27 @@ OpenJDK 25 package is the default and is TCK (Technology Compatibility Kit) cert
 
 #### .NET
 
-...
+.NET 10 is available in the Ubuntu archive. Install it with `sudo apt install dotnet10`.
+
+Application developers may get other .NET releases, such as .NET 8 or .NET 9, via the [Backports PPA](https://launchpad.net/~dotnet/+archive/ubuntu/backports). Note that PPA builds are made available as a best-effort and support is limited to the upstream lifespan of the .NET release.
+
+Alternatively, .NET 8, 9, and 10 are available via the official [.NET snap](https://snapcraft.io/dotnet).
+
+##### NetCoreDbg Snap
+
+NetCoreDbg is now available as a [snap](https://snapcraft.io/netcoredbg), providing a convenient way to install and use the .NET debugger on Ubuntu. NetCoreDbg is a cross-platform debugger for .NET applications, supporting features like breakpoints, stepping, and variable inspection. To install NetCoreDbg via snap, run the following command:
+
+```none
+sudo snap install netcoredbg --classic
+```
+
+##### MSBuild Structured Log Viewer
+
+The MSBuild Structured Log Viewer is now available as a [snap](https://snapcraft.io/msbuild-structured-log-viewer). This tool allows developers to visualize and troubleshoot build processes by providing insights into the build execution from MSBuild binary log files. To install the MSBuild Structured Log Viewer via snap, run the following command:
+
+```none
+sudo snap install msbuild-structured-log-viewer
+```
 
 #### Rust + cargo-auditable
 
