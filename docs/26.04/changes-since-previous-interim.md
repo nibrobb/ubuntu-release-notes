@@ -662,6 +662,15 @@ sudo apt install dpclang-6
 sudo apt install onedpl-headers
 ```
 
+To install the oneDNN development package and the oneDNN runtime, use the following commands:
+
+```bash
+sudo apt install libdnnl-sycl-dev
+sudo apt install libdnnl-sycl3
+```
+
+Additional components from Intel's oneAPI stack will be added to the Ubuntu archive in the future.
+
 
 ## Backwards-incompatible changes
 
