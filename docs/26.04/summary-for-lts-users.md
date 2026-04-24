@@ -1022,7 +1022,7 @@ To switch back to rust-coreutils:
   sudo apt install coreutils-from-uutils --allow-remove-essential
   ```
 
-Because of unresolved bugs, the `cp`, `mp`, and `rm` utilities are still from GNU in `rust-coreutils`.
+Because of unresolved bugs, the `cp`, `mv`, and `rm` utilities are still from GNU in `rust-coreutils`.
 For more information, see [An update on rust-coreutils](https://discourse.ubuntu.com/t/an-update-on-rust-coreutils/80773).
 
 
