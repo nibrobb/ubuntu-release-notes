@@ -529,24 +529,6 @@ We encourage developers to turn on cargo-auditable support for their own package
 
 For more information, including how to opt in, see the [Ubuntu project documentation](https://documentation.ubuntu.com/project/contributors/language-specific/rust/cargo-auditable/).
 
-#### The DPC++ compiler and related packages are now available
-
-Intel's open-source oneAPI DPC++ compiler for building [SYCL](https://www.khronos.org/sycl/) code is now available in the Ubuntu Archive. The compiler runtime includes adapters for running on Intel GPU hardware.
-
-The following related packages are also now available from the Ubuntu archive:
-
-* DPC++ library (oneDPL), which provides a high-productivity API for developers
-* Deep Neural Network Library (oneDNN) built with the `dpclang-6` compiler for running on Intel GPUs
-
-These tools provide support for AI workloads on Intel GPU hardware. Note that users need to be in the `render` group in order to leverage Intel GPUs with these packages.
-
-To install the compiler and the library, use the following commands:
-
-```bash
-sudo apt install dpclang-6
-sudo apt install onedpl-headers
-```
-
 
 ### System features
 
@@ -661,6 +643,21 @@ Cryptography libraries have been updated to recent versions:
 * NSS to version [3.120](https://launchpad.net/ubuntu/+source/nss/2:3.120-1ubuntu2)
 * `libgcrypt` to version 1.12.0
 * `libsodium` to version 1.0.18 (includes security fixes from [1.0.21](https://github.com/jedisct1/libsodium/releases/tag/1.0.21-RELEASE))
+
+#### The DPC++ compiler and related packages are now available
+
+```{include} /reuse/26.04/dpc-compiler.txt
+```
+
+#### The NVIDIA CUDA toolkit is now available
+
+```{include} /reuse/26.04/cuda-support.txt
+```
+
+#### The AMD ROCm libraries are now available
+
+```{include} /reuse/26.04/rocm-support.txt
+```
 
 
 ## Backwards-incompatible changes
@@ -1134,3 +1131,10 @@ This release includes the following known vulnerabilities. Please, review their 
 * [CVE-2026-35373](https://www.cve.org/CVERecord?id=CVE-2026-35373)
 * [CVE-2026-35374](https://www.cve.org/CVERecord?id=CVE-2026-35374)
 * [CVE-2026-35377](https://www.cve.org/CVERecord?id=CVE-2026-35346)
+
+(resolute-gfx908-blender-tests-issue)=
+#### AMD ROCm fails Blender tests on `gfx908`
+
+With the newly supported AMD ROCm AI/ML infrastructure, Blender tests currently do not pass on the `gfx908` GPU platform The platform is the basis for AMD Instinct MI100 accelerators. 
+
+We're investigating the issue.
