@@ -16,6 +16,8 @@ Currently only some hardware architectures are supported and integrated in Canon
 | `gfx1151`  | Strix Halo / Ryzen AI MAX 300 Series (Radeon 8040S, 8050S, 8060S) | YES |
 | `gfx1200`  | Navi48 / Radeon RX9060 | |
 | `gfx1201` | Navi44 / Radeon RX 9070XT, AI PRO R9700 | YES |
+
+Note that currently, {ref}`resolute-gfx908-blender-tests-issue`.
 :::
 
 ::::{dropdown} ROCm libraries

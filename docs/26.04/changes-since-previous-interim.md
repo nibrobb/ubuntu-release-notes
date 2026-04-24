@@ -1131,3 +1131,10 @@ This release includes the following known vulnerabilities. Please, review their 
 * [CVE-2026-35373](https://www.cve.org/CVERecord?id=CVE-2026-35373)
 * [CVE-2026-35374](https://www.cve.org/CVERecord?id=CVE-2026-35374)
 * [CVE-2026-35377](https://www.cve.org/CVERecord?id=CVE-2026-35346)
+
+(resolute-gfx908-blender-tests-issue)=
+#### AMD ROCm fails Blender tests on `gfx908`
+
+With the newly supported AMD ROCm AI/ML infrastructure, Blender tests currently do not pass on the `gfx908` GPU platform The platform is the basis for AMD Instinct MI100 accelerators. 
+
+We're investigating the issue.
