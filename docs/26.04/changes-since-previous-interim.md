@@ -694,7 +694,7 @@ The ROCm libraries are regularly tested in Canonical's CI/CD processes. In addit
 :::{dropdown} Supported hardware
 Currently only some hardware architectures are supported and integrated in Canonical's CI/CD tests but others will be added over time:
 
-| gfx ISA    | Hardware Family | CI Status |
+| GFX ISA    | Hardware Family | CI Status |
 |---|---|---|
 | `gfx908`    | Instinct™ MI-100 | YES |
 | `gfx90a`    | Instinct MI-210, MI-250  | |

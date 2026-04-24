@@ -651,6 +651,7 @@ NVDIMM
 NVDIMMs
 oauth
 oem
+Ollama
 onwards
 Open Graph
 openapi
@@ -797,6 +798,7 @@ rfkill
 rhythmbox
 Rockcraft
 Rockhopper
+ROCm
 Romi
 roms
 rootfs
