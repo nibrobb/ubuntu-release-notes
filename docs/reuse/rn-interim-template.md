@@ -1,13 +1,12 @@
-(ubuntu-26.10-release-notes)=
-# Ubuntu 26.10 release notes
+# Ubuntu \<VERSION\> release notes
 
-These release notes cover new features and changes in Ubuntu 26.10 (Stonking Stingray).
+These release notes cover new features and changes in Ubuntu \<VERSION\> (\<WORDY WORD\>).
 
 :::{important}
-Ubuntu 26.10 (Stonking Stingray) is currently in development, scheduled to be released in October 2026.
+Ubuntu \<VERSION\> (\<WORDY WORD\>) is currently in development, scheduled to be released in October \<YEAR\>.
 :::
 
-For the release schedule of Ubuntu 26.10, refer to:
+For the release schedule of Ubuntu \<VERSION\>, refer to:
 
 :::{toctree}
 :maxdepth: 1

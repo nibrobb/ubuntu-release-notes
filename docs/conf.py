@@ -351,7 +351,7 @@ extensions = [
 # Excludes files or directories from processing
 
 exclude_patterns = [
-    "doc-cheat-sheet*",
+    "reuse/*-template.md",
     ".venv*",
 ]
 
